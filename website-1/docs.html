@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup docs ... omni-vision-pro</title>
+  <meta name="description" content="Manual setup guides for every AI client ... Codex, OpenCode, Claude Code, Cursor, VS Code and Claude Desktop ... plus troubleshooting." />
+  <meta property="og:title" content="Setup docs ... omni-vision-pro" />
+  <meta property="og:description" content="Manual setup for every client, plus troubleshooting." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/docs" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="curtain" aria-hidden="true">
+    <svg class="curtain-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============ MOBILE BLOOM MENU ============ -->
+  <button class="menu-trigger" id="menuTrigger" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="mt-dot mt-d1"></span>
+    <span class="mt-dot mt-d2"></span>
+    <span class="mt-dot mt-d3"></span>
+  </button>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-ring" aria-hidden="true"></div>
+    <div class="menu-fan">
+      <div class="menu-card mc-a">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Explore</p>
+        <a href="features.html" data-page="features">Features<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="providers.html" data-page="providers">Providers<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="privacy.html" data-page="privacy">Privacy<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="menu-card mc-b">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Get started</p>
+        <a href="setup.html" data-page="setup">One-click setup<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="docs.html" data-page="docs">Setup docs<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="index.html" data-page="home">Home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="menu-card mc-c">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Community</p>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP protocol<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+    <button class="menu-close" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Close</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="omni-vision-pro ... back to home">
+        <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="2" fill="#f59e0b"/>
+        </svg>
+        <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="features.html" data-page="features">Features</a>
+        <a href="providers.html" data-page="providers">Providers</a>
+        <a href="setup.html" data-page="setup">Setup</a>
+        <a href="docs.html" data-page="docs">Docs</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Star
+        </a>
+        <a class="btn btn-primary btn-sm" href="setup.html" data-page="setup">
+          <span class="dot-pulse" aria-hidden="true"></span> Get started
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-root">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-hero">
+      <div class="page-hero-inner reveal">
+        <a class="hero-badge" href="setup.html" data-page="setup">
+          <span class="badge-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h12l4 4v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h4M8 13h8M8 17h5"/></svg>
+          </span>
+          Manual &amp; per-client setup
+        </a>
+        <h1 class="page-title">Wire it up <span class="txt-cyan italic">your way</span></h1>
+        <p class="page-sub">Auto-setup covers most clients. For VS Code, Claude Desktop, or project-only configs ... here's every way to connect. The launch command is always the same:</p>
+        <div class="code-block launch-block" data-copy="npx --yes omni-vision-pro@latest serve">
+          <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest serve</code>
+          <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLIENT TABS ============ -->
+    <section class="section section-alt section-docs">
+      <div class="docs reveal">
+        <div class="docs-tabs" role="tablist" aria-label="Client setup guides">
+          <button class="docs-tab active" role="tab" aria-selected="true" data-tab="codex">Codex</button>
+          <button class="docs-tab" role="tab" aria-selected="false" data-tab="opencode">OpenCode</button>
+          <button class="docs-tab" role="tab" aria-selected="false" data-tab="claude-code">Claude Code</button>
+          <button class="docs-tab" role="tab" aria-selected="false" data-tab="cursor">Cursor</button>
+          <button class="docs-tab" role="tab" aria-selected="false" data-tab="vscode">VS Code</button>
+          <button class="docs-tab" role="tab" aria-selected="false" data-tab="desktop">Claude Desktop</button>
+        </div>
+
+        <!-- Codex -->
+        <div class="docs-panel active" id="panel-codex" role="tabpanel">
+          <div class="panel-intro"><span class="t-ok">✓</span> Auto setup supported ... Codex CLI, desktop &amp; IDE</div>
+          <div class="code-block" data-copy="codex mcp add omni-vision-pro -- npx --yes omni-vision-pro@latest serve">
+            <code><span class="c-prompt">$</span> codex mcp add omni-vision-pro -- npx --yes omni-vision-pro@latest serve</code>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Or add this to <code>~/.codex/config.toml</code> (or <code>.codex/config.toml</code> in a trusted project):</p>
+          <div class="code-block raw">
+            <pre><code>[mcp_servers.omni-vision-pro]
+command = "npx"
+args = ["--yes", "omni-vision-pro@latest", "serve"]
+startup_timeout_sec = 120
+tool_timeout_sec = 1200
+enabled = true</code></pre>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Restart or start a new session, then check <code>/mcp</code>.</p>
+        </div>
+
+        <!-- OpenCode -->
+        <div class="docs-panel" id="panel-opencode" role="tabpanel">
+          <div class="panel-intro"><span class="t-ok">✓</span> Auto setup supported ... project &amp; user config</div>
+          <p class="panel-note">Add to a project <code>opencode.json</code> / <code>opencode.jsonc</code>, or <code>~/.config/opencode/opencode.json</code>:</p>
+          <div class="code-block raw">
+            <pre><code>{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "omni-vision-pro": {
+      "type": "local",
+      "command": ["npx", "--yes", "omni-vision-pro@latest", "serve"],
+      "enabled": true,
+      "timeout": 600000
+    }
+  }
+}</code></pre>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">On Windows, <code>~</code> means your user folder. Restart OpenCode and run <code>opencode mcp list</code>.</p>
+        </div>
+
+        <!-- Claude Code -->
+        <div class="docs-panel" id="panel-claude-code" role="tabpanel">
+          <div class="panel-intro"><span class="t-ok">✓</span> Auto setup supported ... user &amp; project scope</div>
+          <div class="code-block" data-copy="claude mcp add --scope user --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve">
+            <code><span class="c-prompt">$</span> claude mcp add --scope user --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve</code>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Project scope from the project root (entries live in <code>.mcp.json</code>):</p>
+          <div class="code-block" data-copy="claude mcp add --scope project --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve">
+            <code><span class="c-prompt">$</span> claude mcp add --scope project --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve</code>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Verify with <code>claude mcp list</code>.</p>
+        </div>
+
+        <!-- Cursor -->
+        <div class="docs-panel" id="panel-cursor" role="tabpanel">
+          <div class="panel-intro"><span class="t-ok">✓</span> Auto setup supported + one-click install link</div>
+          <p class="panel-note">Put this in <code>~/.cursor/mcp.json</code> (all projects) or <code>.cursor/mcp.json</code> (one project):</p>
+          <div class="code-block raw">
+            <pre><code>{
+  "mcpServers": {
+    "omni-vision-pro": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["--yes", "omni-vision-pro@latest", "serve"]
+    }
+  }
+}</code></pre>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Reload the window, then open <strong>Settings &gt; Tools &amp; MCP</strong> and enable the server if needed.</p>
+        </div>
+
+        <!-- VS Code -->
+        <div class="docs-panel" id="panel-vscode" role="tabpanel">
+          <div class="panel-intro"><span class="t-info">ℹ</span> Manual setup ... run <strong>MCP: Add Server</strong> from the Command Palette, or create <code>.vscode/mcp.json</code>:</div>
+          <div class="code-block raw">
+            <pre><code>{
+  "servers": {
+    "omni-vision-pro": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["--yes", "omni-vision-pro@latest", "serve"]
+    }
+  }
+}</code></pre>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Start it from the inline action, run <strong>MCP: List Servers</strong>, and approve the trust prompt.</p>
+        </div>
+
+        <!-- Claude Desktop -->
+        <div class="docs-panel" id="panel-desktop" role="tabpanel">
+          <div class="panel-intro"><span class="t-info">ℹ</span> Manual setup ... add to <code>claude_desktop_config.json</code>:</div>
+          <div class="code-block raw">
+            <pre><code>{
+  "mcpServers": {
+    "omni-vision-pro": {
+      "command": "npx",
+      "args": ["--yes", "omni-vision-pro@latest", "serve"]
+    }
+  }
+}</code></pre>
+            <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <p class="panel-note">Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code> · macOS: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>. Completely quit &amp; reopen Claude Desktop after saving.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TROUBLESHOOTING ============ -->
+    <section class="section" id="troubleshooting">
+      <div class="section-head reveal">
+        <p class="kicker kicker-amber">Troubleshooting</p>
+        <h2>Stuck? <span class="txt-emerald">Here's the fix</span></h2>
+      </div>
+      <div class="faq-stack reveal">
+        <details class="faq">
+          <summary>Clipboard import cannot find the key</summary>
+          <div class="faq-body">
+            <p class="panel-note">Copy only the Gemini/OpenAI key, then run <code>provider set --from-clipboard</code> again.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>A key was added but OCR is still active</summary>
+          <div class="faq-body">
+            <p class="panel-note">Run <code>provider status</code>, then <code>provider on</code>, and restart/reload the AI client.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>The wrong AI provider is being used</summary>
+          <div class="faq-body">
+            <p class="panel-note">Run <code>provider</code>, choose the provider you want, then restart/reload the AI client.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>The client cannot find npx</summary>
+          <div class="faq-body">
+            <p class="panel-note">Install Node.js 20.10+, restart the client, or replace npx with its full path such as <code>C:\Program Files\nodejs\npx.cmd</code>.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>The server is installed but not visible</summary>
+          <div class="faq-body">
+            <p class="panel-note">Run <code>doctor</code>, restart/reload the client, then approve the server or project trust prompt.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>An image attachment is not found</summary>
+          <div class="faq-body">
+            <p class="panel-note">Attach the image in the same request, or pass its inline data URL. No special copy folder is needed.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>OCR takes too long</summary>
+          <div class="faq-body">
+            <p class="panel-note">The first OCR request starts a local worker. Keep client tool timeouts above 90 seconds; image arrays run sequentially.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Gemini reports a retired model</summary>
+          <div class="faq-body">
+            <p class="panel-note">Set <code>GEMINI_MODEL=gemini-2.5-flash</code> in the private .env.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Code or ZIP access is denied</summary>
+          <div class="faq-body">
+            <p class="panel-note">If <code>OMNI_ALLOWED_ROOTS</code> is set, include the intended project folder, restart the client, and try again.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>A config entry looks wrong</summary>
+          <div class="faq-body">
+            <p class="panel-note">Setup preserves unrelated settings and creates backups before changing JSON/JSONC client files.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+      <div class="final-inner reveal">
+        <h2>Skip the manual work ... <span class="txt-sky italic">one command</span></h2>
+        <p>Let the installer detect, configure and verify everything for you.</p>
+        <div class="final-btns">
+          <button class="btn btn-primary btn-lg copy-btn" data-copy="npx --yes omni-vision-pro@latest setup --yes">
+            <span class="cmd-prefix">$</span> npx --yes omni-vision-pro@latest setup --yes
+            <svg class="copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <a class="btn btn-ghost btn-lg" href="setup.html" data-page="setup">See the guided setup</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="2" fill="#f59e0b"/>
+          </svg>
+          <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+        </a>
+        <p>Visual, code, and ZIP context for text-only AI models. Open source, MIT licensed.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="fcol">
+          <h5>Product</h5>
+          <a href="features.html" data-page="features">Features</a>
+          <a href="providers.html" data-page="providers">AI providers</a>
+          <a href="setup.html" data-page="setup">One-click setup</a>
+          <a href="docs.html" data-page="docs">Setup docs</a>
+        </div>
+        <div class="fcol">
+          <h5>Resources</h5>
+          <a href="docs.html" data-page="docs">Setup docs</a>
+          <a href="docs.html#troubleshooting" data-page="docs">Troubleshooting</a>
+          <a href="privacy.html" data-page="privacy">Privacy &amp; safety</a>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a>
+        </div>
+        <div class="fcol">
+          <h5>Open source</h5>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub repo</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/issues" target="_blank" rel="noopener">Report an issue</a>
+          <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> omni-vision-pro ... built for fast, safe context handoff between people, files and models.</span>
+      <span class="footer-badges">
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/omni-vision-pro?style=flat-square&color=2563eb" alt="npm version" loading="lazy" /></a>
+        <a href="https://nodejs.org/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Node.js-20.10%2B-16a34a?style=flat-square" alt="Node.js 20.10+" loading="lazy" /></a>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-ec4899?style=flat-square" alt="MIT license" loading="lazy" /></a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

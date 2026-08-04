@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features ... omni-vision-pro</title>
+  <meta name="description" content="Three MCP tools that give text-only AI models vision: analyze_images, read_code_context and read_zip_context. With example payloads and safety limits." />
+  <meta property="og:title" content="Features ... omni-vision-pro" />
+  <meta property="og:description" content="analyze_images, read_code_context and read_zip_context ... real vision and context for text-only AI models." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/features" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="curtain" aria-hidden="true">
+    <svg class="curtain-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============ MOBILE BLOOM MENU ============ -->
+  <button class="menu-trigger" id="menuTrigger" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="mt-dot mt-d1"></span>
+    <span class="mt-dot mt-d2"></span>
+    <span class="mt-dot mt-d3"></span>
+  </button>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-ring" aria-hidden="true"></div>
+    <div class="menu-fan">
+      <div class="menu-card mc-a">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Explore</p>
+        <a href="features.html" data-page="features">Features<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="providers.html" data-page="providers">Providers<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="privacy.html" data-page="privacy">Privacy<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="menu-card mc-b">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Get started</p>
+        <a href="setup.html" data-page="setup">One-click setup<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="docs.html" data-page="docs">Setup docs<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="index.html" data-page="home">Home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="menu-card mc-c">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Community</p>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP protocol<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+    <button class="menu-close" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Close</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="omni-vision-pro ... back to home">
+        <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="2" fill="#f59e0b"/>
+        </svg>
+        <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="features.html" data-page="features">Features</a>
+        <a href="providers.html" data-page="providers">Providers</a>
+        <a href="setup.html" data-page="setup">Setup</a>
+        <a href="docs.html" data-page="docs">Docs</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Star
+        </a>
+        <a class="btn btn-primary btn-sm" href="setup.html" data-page="setup">
+          <span class="dot-pulse" aria-hidden="true"></span> Get started
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-root">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-hero">
+      <div class="page-hero-inner reveal">
+        <a class="hero-badge" href="docs.html" data-page="docs">
+          <span class="badge-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </span>
+          Three MCP tools · stdio transport
+        </a>
+        <h1 class="page-title">Everything your model <span class="txt-cyan italic">couldn't see</span></h1>
+        <p class="page-sub">Three registered MCP tools give your AI real perception ... screenshots analyzed as structured JSON, source trees read safely, and ZIP archives inspected in memory. No special folders, no setup rituals.</p>
+      </div>
+    </section>
+
+    <!-- ============ TOOL 1 ============ -->
+    <section class="section">
+      <div class="tool-detail">
+        <article class="tool-card reveal">
+          <div class="tool-icon ic-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5a2 2 0 0 0-2.8 0L6 20"/></svg>
+          </div>
+          <h3>analyze_images</h3>
+          <p>One reference or an ordered array of images. Every reference type is resolved automatically ... absolute paths, relative paths, file:// URLs, Markdown image links, inline base64 data URLs, OpenCode caches, and bounded temporary-folder scans.</p>
+          <p>Images are processed sequentially in the exact supplied order. A failed image gets its own result and never discards the rest.</p>
+          <div class="chip-row">
+            <span class="chip">structured UI JSON</span><span class="chip">ordered batch</span><span class="chip">per-image result</span><span class="chip">AI + OCR fallback</span>
+          </div>
+        </article>
+        <div class="code-block raw reveal" data-reveal-delay="100">
+          <div>
+            <div class="code-lang">Example call ... analyze screenshots</div>
+            <pre><code>{
+  "image_paths": [
+    "C:/Screenshots/home.png",
+    "C:/Screenshots/settings.png"
+  ],
+  "prompt": "Focus on responsive layout,
+  reusable components, and accessibility."
+}</code></pre>
+          </div>
+          <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ============ TOOL 2 ============ -->
+      <div class="tool-detail">
+        <article class="tool-card reveal">
+          <div class="tool-icon ic-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h12l4 4v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h4M8 13h8M8 17h5"/></svg>
+          </div>
+          <h3>read_code_context</h3>
+          <p>Point it at any file or folder and get a clean file tree followed by safe text contents. node_modules, .git, build output, binaries and common secret files are skipped automatically, and output is capped so the model never drowns.</p>
+          <p>Optional <code>max_files</code> and <code>max_output_bytes</code> keep every request predictable.</p>
+          <div class="chip-row">
+            <span class="chip">file tree + contents</span><span class="chip">secret-file filtering</span><span class="chip">size limits</span>
+          </div>
+        </article>
+        <div class="code-block raw reveal" data-reveal-delay="100">
+          <div>
+            <div class="code-lang">Example call ... read a project folder</div>
+            <pre><code>{
+  "path": "C:/Projects/my-app/src",
+  "max_files": 80,
+  "max_output_bytes": 750000
+}</code></pre>
+          </div>
+          <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ============ TOOL 3 ============ -->
+      <div class="tool-detail">
+        <article class="tool-card reveal">
+          <div class="tool-icon ic-emerald">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+          </div>
+          <h3>read_zip_context</h3>
+          <p>Inspect any .zip entirely in memory ... a virtual file tree plus readable contents, with zero extraction to disk. Path traversal, duplicates, encryption, CRC, compression-ratio and ZIP-bomb checks run on every archive.</p>
+          <p>Safe enough to hand your model an archive you barely trust.</p>
+          <div class="chip-row">
+            <span class="chip">in-memory only</span><span class="chip">ZIP-bomb safe</span><span class="chip">no extraction</span>
+          </div>
+        </article>
+        <div class="code-block raw reveal" data-reveal-delay="100">
+          <div>
+            <div class="code-lang">Example call ... read a ZIP safely</div>
+            <pre><code>{
+  "path": "C:/Downloads/my-app.zip",
+  "max_files": 80,
+  "max_output_bytes": 750000
+}</code></pre>
+          </div>
+          <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CAPABILITIES ============ -->
+    <section class="section section-alt">
+      <div class="section-head reveal">
+        <p class="kicker kicker-cyan">Capabilities</p>
+        <h2>Under the hood, <span class="txt-emerald">everything counts</span></h2>
+      </div>
+      <div class="cap-grid">
+        <div class="cap reveal"><span class="cap-ico">🖼️</span><h4>Image context</h4><p>Screenshots, UI mocks, diagrams ... analyzed in order, one result per image.</p></div>
+        <div class="cap reveal" data-reveal-delay="60"><span class="cap-ico">🔍</span><h4>Attachment recovery</h4><p>Paths, URLs, markdown links, inline data &amp; bounded temp-folder scans.</p></div>
+        <div class="cap reveal" data-reveal-delay="120"><span class="cap-ico">🧱</span><h4>UI analysis</h4><p>Structured JSON: layout, components, typography, colors, spacing, interactions, a11y.</p></div>
+        <div class="cap reveal" data-reveal-delay="180"><span class="cap-ico">📁</span><h4>Code context</h4><p>Clean file tree + safe source contents, filtered and size-limited.</p></div>
+        <div class="cap reveal" data-reveal-delay="60"><span class="cap-ico">🗜️</span><h4>ZIP context</h4><p>In-memory archive inspection ... zero extraction, full security checks.</p></div>
+        <div class="cap reveal" data-reveal-delay="120"><span class="cap-ico">📐</span><h4>Local measurements</h4><p>Resized dimensions, dominant color and palette measured with sharp.</p></div>
+        <div class="cap reveal" data-reveal-delay="180"><span class="cap-ico">🧠</span><h4>Automatic vision</h4><p>OCR by default; add Gemini or OpenAI later ... cloud failures fall back to OCR.</p></div>
+        <div class="cap reveal" data-reveal-delay="240"><span class="cap-ico">🧩</span><h4>Universal</h4><p>One MCP server for Codex, OpenCode, Claude Code, Cursor, VS Code &amp; Claude Desktop.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+      <div class="final-inner reveal">
+        <h2>Ready to see <span class="txt-cyan italic">everything?</span></h2>
+        <p>Setup takes under a minute and works with zero API keys.</p>
+        <div class="final-btns">
+          <a class="btn btn-primary btn-lg" href="setup.html">Open the setup guide
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="docs.html" data-page="docs">Manual setup docs</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="2" fill="#f59e0b"/>
+          </svg>
+          <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+        </a>
+        <p>Visual, code, and ZIP context for text-only AI models. Open source, MIT licensed.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="fcol">
+          <h5>Product</h5>
+          <a href="features.html" data-page="features">Features</a>
+          <a href="providers.html" data-page="providers">AI providers</a>
+          <a href="setup.html" data-page="setup">One-click setup</a>
+          <a href="docs.html" data-page="docs">Setup docs</a>
+        </div>
+        <div class="fcol">
+          <h5>Resources</h5>
+          <a href="docs.html" data-page="docs">Setup docs</a>
+          <a href="docs.html#troubleshooting" data-page="docs">Troubleshooting</a>
+          <a href="privacy.html" data-page="privacy">Privacy &amp; safety</a>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a>
+        </div>
+        <div class="fcol">
+          <h5>Open source</h5>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub repo</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/issues" target="_blank" rel="noopener">Report an issue</a>
+          <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> omni-vision-pro ... built for fast, safe context handoff between people, files and models.</span>
+      <span class="footer-badges">
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/omni-vision-pro?style=flat-square&color=2563eb" alt="npm version" loading="lazy" /></a>
+        <a href="https://nodejs.org/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Node.js-20.10%2B-16a34a?style=flat-square" alt="Node.js 20.10+" loading="lazy" /></a>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-ec4899?style=flat-square" alt="MIT license" loading="lazy" /></a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

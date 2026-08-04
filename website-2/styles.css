@@ -820,11 +820,11 @@ td .t-ok { color: var(--green); font-weight: 600; }
 
 .cmd-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 .cmd-card {
-  padding: 20px 18px;
+  padding: 22px 20px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: #fff;
@@ -832,26 +832,8 @@ td .t-ok { color: var(--green); font-weight: 600; }
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 .cmd-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
-.cmd-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 11px;
-  background: var(--surface-tint);
-  border: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  transition: border-color 0.25s;
-}
-.cmd-line code { color: var(--text); word-break: break-all; line-height: 1.55; }
-.cmd-line .c-prompt { color: var(--green); user-select: none; }
-.cmd-line .code-copy { width: 30px; height: 30px; }
-.cmd-line.copied { border-color: rgba(52, 211, 153, 0.45); }
-.cmd-card p { margin-top: 12px; color: var(--text-dim); font-size: 13.5px; }
-.cmd-card p strong { color: var(--text); font-weight: 600; }
-.cmd-card p code { color: var(--cyan); font-size: 12px; }
+.cmd-main { color: var(--cyan); font-size: 13px; font-weight: 600; word-break: break-all; }
+.cmd-card p { margin-top: 10px; color: var(--text-dim); font-size: 13px; }
 
 /* ---------- privacy ---------- */
 

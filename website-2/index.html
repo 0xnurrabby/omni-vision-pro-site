@@ -9,13 +9,13 @@
   <meta property="og:description" content="Resolve screenshots, inspect source trees, and read ZIP archives through one local MCP server. One-command setup, free local OCR, optional Gemini & OpenAI vision." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="menu-open"><!-- replica of m-320-open.png (320x568) ... menu open on load -->
 
   <div class="curtain" aria-hidden="true">
     <svg class="curtain-mark" viewBox="0 0 24 24" aria-hidden="true">
@@ -28,28 +28,28 @@
   <div class="bg-grid" aria-hidden="true"></div>
 
   <!-- ============ MOBILE BLOOM MENU ============ -->
-  <button class="menu-trigger" id="menuTrigger" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+  <button class="menu-trigger" id="menuTrigger" aria-label="Open menu" aria-expanded="true" aria-controls="menuOverlay">
     <span class="mt-dot mt-d1"></span>
     <span class="mt-dot mt-d2"></span>
     <span class="mt-dot mt-d3"></span>
   </button>
 
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="false">
     <div class="menu-ring" aria-hidden="true"></div>
     <div class="menu-fan">
       <div class="menu-card mc-a">
         <span class="mc-dot" aria-hidden="true"></span>
         <p class="mc-label">Explore</p>
-        <a href="/features" data-page="features">Features<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
-        <a href="/providers" data-page="providers">Providers<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
-        <a href="/privacy" data-page="privacy">Privacy<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="features.html" data-page="features">Features<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="providers.html" data-page="providers">Providers<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="privacy.html" data-page="privacy">Privacy<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
       </div>
       <div class="menu-card mc-b">
         <span class="mc-dot" aria-hidden="true"></span>
         <p class="mc-label">Get started</p>
-        <a href="/setup" data-page="setup">One-click setup<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
-        <a href="/docs" data-page="docs">Setup docs<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
-        <a href="/" data-page="home">Home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="setup.html" data-page="setup">One-click setup<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="docs.html" data-page="docs">Setup docs<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="index.html" data-page="home">Home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
       </div>
       <div class="menu-card mc-c">
         <span class="mc-dot" aria-hidden="true"></span>
@@ -65,7 +65,7 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a class="brand" href="/" aria-label="omni-vision-pro ... back to home">
+      <a class="brand" href="index.html" aria-label="omni-vision-pro ... back to home">
         <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
           <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
@@ -74,17 +74,17 @@
         <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="/features" data-page="features">Features</a>
-        <a href="/providers" data-page="providers">Providers</a>
-        <a href="/setup" data-page="setup">Setup</a>
-        <a href="/docs" data-page="docs">Docs</a>
+        <a href="features.html" data-page="features">Features</a>
+        <a href="providers.html" data-page="providers">Providers</a>
+        <a href="setup.html" data-page="setup">Setup</a>
+        <a href="docs.html" data-page="docs">Docs</a>
       </nav>
       <div class="nav-cta">
         <a class="btn btn-ghost btn-sm" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
           Star
         </a>
-        <a class="btn btn-primary btn-sm" href="/setup" data-page="setup">
+        <a class="btn btn-primary btn-sm" href="setup.html" data-page="setup">
           <span class="dot-pulse" aria-hidden="true"></span> Get started
         </a>
       </div>
@@ -121,7 +121,7 @@
             <span class="cmd-prefix">$</span> npx --yes omni-vision-pro@latest setup --yes
             <svg class="copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
-          <a class="btn btn-ghost btn-lg" href="/setup">
+          <a class="btn btn-ghost btn-lg" href="setup.html">
             Open setup guide
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
           </a>
@@ -187,7 +187,7 @@
           <div class="chip-row">
             <span class="chip">JSON output</span><span class="chip">ordered batch</span><span class="chip">AI + OCR fallback</span>
           </div>
-          <a class="tool-link" href="/features">Learn more
+          <a class="tool-link" href="features.html">Learn more
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
           </a>
         </article>
@@ -201,7 +201,7 @@
           <div class="chip-row">
             <span class="chip">file tree</span><span class="chip">smart filtering</span><span class="chip">size limits</span>
           </div>
-          <a class="tool-link" href="/features">Learn more
+          <a class="tool-link" href="features.html">Learn more
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
           </a>
         </article>
@@ -215,14 +215,14 @@
           <div class="chip-row">
             <span class="chip">in-memory</span><span class="chip">zip-bomb safe</span><span class="chip">no extraction</span>
           </div>
-          <a class="tool-link" href="/features">Learn more
+          <a class="tool-link" href="features.html">Learn more
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
           </a>
         </article>
       </div>
 
       <div class="section-cta reveal">
-        <a class="btn btn-blue btn-lg" href="/features">Explore all features
+        <a class="btn btn-blue btn-lg" href="features.html">Explore all features
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
         </a>
       </div>
@@ -275,7 +275,7 @@
         <div class="mini-card reveal c2" data-reveal-delay="100">
           <div class="mini-num">STEP 02</div>
           <h3>Add AI vision ... optional</h3>
-          <p>Open PowerShell and run the provider menu whenever you're ready ... add or switch a Gemini or OpenAI key with a hidden prompt or a clipboard import. It never touches your client config.</p>
+          <p>Add a Gemini or OpenAI key later through a hidden prompt or a clipboard import. Switching providers never touches your client config.</p>
         </div>
         <div class="mini-card reveal c3" data-reveal-delay="200">
           <div class="mini-num">STEP 03</div>
@@ -289,7 +289,7 @@
           <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest setup --yes</code>
           <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
-        <a class="btn btn-blue btn-lg" href="/setup">Open the full guide
+        <a class="btn btn-blue btn-lg" href="setup.html">Open the full guide
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
         </a>
       </div>
@@ -328,7 +328,7 @@
       </div>
 
       <div class="section-cta reveal">
-        <a class="btn btn-ghost btn-lg" href="/providers">Compare provider modes
+        <a class="btn btn-ghost btn-lg" href="providers.html">Compare provider modes
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
         </a>
       </div>
@@ -357,7 +357,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a class="brand" href="/">
+        <a class="brand" href="index.html">
           <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
             <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
@@ -370,16 +370,16 @@
       <div class="footer-cols">
         <div class="fcol">
           <h5>Product</h5>
-          <a href="/features" data-page="features">Features</a>
-          <a href="/providers" data-page="providers">AI providers</a>
-          <a href="/setup" data-page="setup">One-click setup</a>
-          <a href="/docs" data-page="docs">Setup docs</a>
+          <a href="features.html" data-page="features">Features</a>
+          <a href="providers.html" data-page="providers">AI providers</a>
+          <a href="setup.html" data-page="setup">One-click setup</a>
+          <a href="docs.html" data-page="docs">Setup docs</a>
         </div>
         <div class="fcol">
           <h5>Resources</h5>
-          <a href="/docs" data-page="docs">Setup docs</a>
-          <a href="/docs#troubleshooting" data-page="docs">Troubleshooting</a>
-          <a href="/privacy" data-page="privacy">Privacy &amp; safety</a>
+          <a href="docs.html" data-page="docs">Setup docs</a>
+          <a href="docs.html#troubleshooting" data-page="docs">Troubleshooting</a>
+          <a href="privacy.html" data-page="privacy">Privacy &amp; safety</a>
           <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a>
         </div>
         <div class="fcol">
@@ -401,6 +401,6 @@
     </div>
   </footer>
 
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

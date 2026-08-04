@@ -144,18 +144,6 @@
       });
     });
 
-    $$(".cmd-line[data-copy]").forEach(function (line) {
-      var copyBtn = $(".code-copy", line);
-      if (!copyBtn) return;
-      copyBtn.addEventListener("click", function () {
-        copyText(line.getAttribute("data-copy"), function () {
-          copyBtnFlash(copyBtn);
-          line.classList.add("copied");
-          setTimeout(function () { line.classList.remove("copied"); }, 1600);
-        });
-      });
-    });
-
     var tabs = $$(".docs-tab");
     if (tabs.length) {
       tabs.forEach(function (tab) {
