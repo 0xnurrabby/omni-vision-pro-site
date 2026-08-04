@@ -48,7 +48,7 @@
     var nav = $("#nav");
 
     var key = (keyOverride || pageKey()).replace(/\.html$/, "");
-    $$(".nav-links a[data-page], .nav-cta a[data-page], .footer-cols a[data-page]").forEach(function (a) {
+    $$(".nav-links a[data-page], .nav-cta a[data-page], .footer-cols a[data-page], .menu-overlay a[data-page]").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-page") === key);
     });
 
@@ -196,6 +196,73 @@
     }, { passive: true });
   }
 
+  /* ---------- mobile bloom menu ---------- */
+
+  var menuTrigger = $("#menuTrigger");
+  var menuOverlay = $("#menuOverlay");
+  var menuClose = $("#menuClose");
+
+  function closeMenu() {
+    if (!menuOverlay || !document.body.classList.contains("menu-open")) return;
+    document.body.classList.remove("menu-open");
+    if (menuTrigger) menuTrigger.setAttribute("aria-expanded", "false");
+    menuOverlay.setAttribute("aria-hidden", "true");
+  }
+
+  function burstParticles(x, y, colors, count) {
+    if (!("animate" in document.createElement("span"))) return;
+    for (var i = 0; i < count; i++) {
+      var s = document.createElement("span");
+      s.className = "menu-burst";
+      s.style.background = colors[i % colors.length];
+      s.style.left = x + "px";
+      s.style.top = y + "px";
+      document.body.appendChild(s);
+      var ang = -Math.PI / 2 + (Math.random() - 0.5) * 2.4;
+      var dist = 60 + Math.random() * 150;
+      var dx = Math.cos(ang) * dist;
+      var dy = Math.sin(ang) * dist - 46;
+      var anim = s.animate([
+        { transform: "translate(0,0) scale(1)", opacity: 1 },
+        { transform: "translate(" + dx + "px," + dy + "px) scale(0)", opacity: 0 }
+      ], { duration: 650 + Math.random() * 450, easing: "cubic-bezier(0.16,1,0.3,1)", fill: "forwards" });
+      anim.onfinish = function () { s.remove(); };
+    }
+  }
+
+  if (menuTrigger && menuOverlay) {
+    var fan = $(".menu-fan", menuOverlay);
+    if (fan) {
+      $$(".menu-card", fan).forEach(function (card, ci) {
+        $$("a", card).forEach(function (a, i) {
+          a.style.setProperty("--i", String(i));
+        });
+      });
+    }
+
+    menuTrigger.addEventListener("click", function () {
+      document.body.classList.add("menu-open");
+      menuTrigger.setAttribute("aria-expanded", "true");
+      menuOverlay.setAttribute("aria-hidden", "false");
+      var r = menuTrigger.getBoundingClientRect();
+      burstParticles(r.left + r.width / 2, r.top + r.height / 2, ["#3b82f6", "#06b6d4", "#f59e0b"], 16);
+    });
+
+    if (menuClose) {
+      menuClose.addEventListener("click", closeMenu);
+      $$("a", menuOverlay).forEach(function (a) {
+        a.addEventListener("click", closeMenu);
+      });
+      menuOverlay.addEventListener("click", function (e) {
+        if (e.target === menuOverlay || e.target.classList.contains("menu-ring")) closeMenu();
+      });
+    }
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
   /* ---------- page transitions ---------- */
 
   function enterPage(hash) {
@@ -252,6 +319,7 @@
           document.body.classList.remove("transition-leave");
           enterPage(hash ? hash.slice(1) : null);
           transitionBusy = false;
+          closeMenu();
         })
         .catch(function () {
           document.body.classList.remove("transition-leave");
@@ -302,6 +370,7 @@
       .then(function () {
         enterPage(window.location.hash ? window.location.hash.slice(1) : null);
         transitionBusy = false;
+        closeMenu();
       })
       .catch(function () {
         transitionBusy = false;

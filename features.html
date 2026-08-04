@@ -27,6 +27,41 @@
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
+  <!-- ============ MOBILE BLOOM MENU ============ -->
+  <button class="menu-trigger" id="menuTrigger" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="mt-dot mt-d1"></span>
+    <span class="mt-dot mt-d2"></span>
+    <span class="mt-dot mt-d3"></span>
+  </button>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-ring" aria-hidden="true"></div>
+    <div class="menu-fan">
+      <div class="menu-card mc-a">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Explore</p>
+        <a href="/features" data-page="features">Features<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="/providers" data-page="providers">Providers<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="/privacy" data-page="privacy">Privacy<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="menu-card mc-b">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Get started</p>
+        <a href="/setup" data-page="setup">One-click setup<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="/docs" data-page="docs">Setup docs<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="/" data-page="home">Home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+      <div class="menu-card mc-c">
+        <span class="mc-dot" aria-hidden="true"></span>
+        <p class="mc-label">Community</p>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+        <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP protocol<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+    <button class="menu-close" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Close</button>
+  </div>
+
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
