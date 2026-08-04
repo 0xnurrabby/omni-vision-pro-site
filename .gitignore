@@ -12,7 +12,12 @@ build/
 .env
 .env.local
 
+# vercel
+.vercel/
+
 # misc
 .DS_Store
 Thumbs.db
 *.log
+
+.vercel
