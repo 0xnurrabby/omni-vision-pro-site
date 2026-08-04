@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06070f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="omni-vision-pro is an open-source MCP server that gives text-only AI models reliable image, code, and ZIP context. One command to set up, local OCR by default.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="omni-vision-pro | Eyes for text-only AI">
+  <meta property="og:description" content="Visual, code, and archive context for the AI tools you already use. One command to set up, no API key required.">
+  <meta property="og:image" content="https://omni-vision-pro-site.vercel.app/assets/social-card.png">
+  <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="omni-vision-pro | Eyes for text-only AI">
+  <meta name="twitter:description" content="Visual, code, and archive context for text-only AI models. One command to set up.">
+  <meta name="twitter:image" content="https://omni-vision-pro-site.vercel.app/assets/social-card.png">
+  <link rel="canonical" href="https://omni-vision-pro-site.vercel.app/">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>omni-vision-pro | Eyes for text-only AI</title>
+</head>
+<body>
+  <div class="scroll-progress" data-scroll-progress></div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="omni-vision-pro home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-name">omni-vision-pro</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#what-it-does">Capabilities</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#tools">Tools</a>
+        <a href="#setup-docs">Setup docs</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="gh-link" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a class="button button-primary button-small" href="#setup-docs">One-click setup</a>
+      </div>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" data-menu-button><span></span><span></span></button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-mobile-menu>
+      <a href="#what-it-does">Capabilities</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#tools">Tools</a>
+      <a href="#setup-docs">Setup docs</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noreferrer">GitHub repository ↗</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-lines"></div>
+        <div class="orb orb-blue"></div>
+        <div class="orb orb-purple"></div>
+        <div class="orb orb-teal"></div>
+        <div class="aurora"></div>
+      </div>
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <div class="eyebrow reveal">
+            <span class="status-dot" aria-hidden="true"></span>
+            Open-source MCP server · v1.2.0 · MIT
+          </div>
+          <h1 class="reveal" data-reveal-delay="1">Eyes for<br><span class="gradient-text">text-only AI.</span></h1>
+          <p class="hero-lede reveal" data-reveal-delay="2">omni-vision-pro resolves screenshots, source trees, and ZIP archives into ordered, structured context your model can actually read. One local MCP server, one command, zero API keys to start.</p>
+          <div class="command-block reveal" data-reveal-delay="3">
+            <span class="command-prompt" aria-hidden="true">$</span>
+            <code>npx --yes omni-vision-pro@latest setup --yes</code>
+            <button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest setup --yes" aria-label="Copy one-click setup command"><span data-copy-label>Copy</span></button>
+          </div>
+          <div class="hero-actions reveal" data-reveal-delay="4">
+            <a class="button button-primary button-large" href="#setup-docs">Start setup <span aria-hidden="true">→</span></a>
+            <a class="button button-ghost button-large" href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noreferrer">View on npm ↗</a>
+          </div>
+          <ul class="hero-proof reveal" data-reveal-delay="5">
+            <li>No API key required</li>
+            <li>Local OCR by default</li>
+            <li>6 clients supported</li>
+            <li>MIT licensed</li>
+          </ul>
+        </div>
+        <div class="hero-demo reveal" data-reveal-delay="4" data-hero-demo>
+          <div class="demo-frame">
+            <div class="demo-bar">
+              <span class="dot dot-coral"></span><span class="dot dot-gold"></span><span class="dot dot-green"></span>
+              <span class="demo-bar-title">omni-vision-pro — MCP server</span>
+            </div>
+            <div class="demo-body" data-demo-body>
+              <div class="demo-line"><span class="demo-prompt">$</span><span class="demo-cmd" data-demo-cmd></span><span class="demo-cursor" aria-hidden="true"></span></div>
+              <div class="demo-output" data-demo-output></div>
+            </div>
+            <div class="demo-status">
+              <span class="demo-status-dot"></span>
+              <span data-demo-status>idle · waiting for context</span>
+            </div>
+          </div>
+          <div class="demo-badge demo-badge-a" aria-hidden="true">PNG 2048×1280</div>
+          <div class="demo-badge demo-badge-b" aria-hidden="true">.zip · in-memory</div>
+          <div class="demo-badge demo-badge-c" aria-hidden="true">src/ · safe tree</div>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="client-band" aria-label="Supported AI clients">
+      <div class="client-shell">
+        <p class="client-label">One server for the AI tools you already use</p>
+        <div class="client-marquee" data-marquee>
+          <div class="marquee-track">
+            <span>Codex</span><span>OpenCode</span><span>Claude Code</span><span>Cursor</span><span>VS Code</span><span>Claude Desktop</span>
+            <span>Codex</span><span>OpenCode</span><span>Claude Code</span><span>Cursor</span><span>VS Code</span><span>Claude Desktop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Project statistics">
+      <div class="stats-shell">
+        <div class="stat reveal"><strong data-count="3">0</strong><span>MCP tools</span></div>
+        <div class="stat reveal"><strong data-count="6">0</strong><span>AI clients</span></div>
+        <div class="stat reveal"><strong data-count="2">0</strong><span>Vision providers</span></div>
+        <div class="stat reveal"><strong data-count="1">0</strong><span>Command to start</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="what-it-does">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="section-index">01 / Capabilities</span>
+          <h2>More than screenshot OCR.</h2>
+          <p>A complete context layer for models that cannot see — from lost attachments to whole archives, everything arrives safe, ordered, and ready to use.</p>
+        </div>
+        <div class="bento-grid">
+          <article class="card card-wide reveal">
+            <div class="card-head"><span class="card-chip">Attachment recovery</span><span class="card-icon" aria-hidden="true">◈</span></div>
+            <h3>Find the image, even when your client loses it.</h3>
+            <p>Resolves absolute and relative paths, <code>file://</code> URLs, Markdown links, inline base64 data, OpenCode caches, and bounded temporary-folder scans automatically.</p>
+            <div class="path-visual" aria-hidden="true">
+              <span>dragged-image.png</span><i></i><span>resolved + prepared</span>
+            </div>
+          </article>
+          <article class="card card-tall reveal">
+            <div class="card-head"><span class="card-chip">Vision routing</span><span class="card-icon" aria-hidden="true">◈</span></div>
+            <h3>AI when configured. OCR when it is not.</h3>
+            <div class="provider-stack">
+              <span><i class="p-color p-gemini"></i>Gemini Flash</span>
+              <span><i class="p-color p-openai"></i>OpenAI · low detail</span>
+              <span><i class="p-color p-ocr"></i>Local Tesseract OCR</span>
+            </div>
+            <p>Cloud quota or request failures never crash the server — the image simply retries with local OCR.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-head"><span class="card-chip">Ordered batches</span><span class="card-icon" aria-hidden="true">◈</span></div>
+            <h3>Image 1 stays image 1.</h3>
+            <p>Screenshots are processed sequentially and returned with stable index delimiters. A failed image never discards the ones after it.</p>
+            <div class="index-stack" aria-hidden="true"><span>Index 1</span><span>Index 2</span><span>Index 3</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="card-head"><span class="card-chip">Code context</span><span class="card-icon" aria-hidden="true">◈</span></div>
+            <h3>A clean tree, then the files that matter.</h3>
+            <p>Skips <code>node_modules</code>, <code>.git</code>, builds, binaries, symlinks, and common secret files before returning source.</p>
+            <pre class="mini-tree"><span>src/</span><span>├─ components/</span><span>├─ lib/</span><span>└─ app.ts</span></pre>
+          </article>
+          <article class="card card-wide reveal">
+            <div class="card-head"><span class="card-chip">Safe ZIP inspection</span><span class="card-icon" aria-hidden="true">◈</span></div>
+            <div class="zip-body">
+              <div>
+                <h3>Read archives without extracting a single file.</h3>
+                <p>In-memory inspection with traversal, duplicate, encryption, CRC, compression-ratio, and ZIP-bomb defenses built in.</p>
+              </div>
+              <div class="zip-shield" aria-hidden="true"><span class="zip-tag">ZIP</span><i></i><span class="zip-check">✓</span></div>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-head"><span class="card-chip">Local measurements</span><span class="card-icon" aria-hidden="true">◈</span></div>
+            <h3>Know the image before the model does.</h3>
+            <p>Resized dimensions, dominant color, and a compact palette measured locally with <code>sharp</code> — no cloud round-trip.</p>
+            <div class="palette" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim" id="how-it-works">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="section-index">02 / How it works</span>
+          <h2>Local first. Cloud only when you choose it.</h2>
+          <p>Every request travels the same safe pipeline: prepare once, route intelligently, return structure.</p>
+        </div>
+        <div class="pipeline reveal">
+          <div class="pipe-node pipe-input">
+            <span class="pipe-icon">◐</span>
+            <strong>Your context</strong>
+            <small>screenshot · folder · zip</small>
+          </div>
+          <div class="pipe-rail"><span></span></div>
+          <div class="pipe-node pipe-engine">
+            <span class="pipe-icon">◈</span>
+            <strong>Omni prepare</strong>
+            <small>orient · resize · measure · guard</small>
+          </div>
+          <div class="pipe-rail"><span></span></div>
+          <div class="pipe-node pipe-router">
+            <span class="pipe-icon">◉</span>
+            <strong>Smart router</strong>
+            <small>fallback chain, never crashes</small>
+            <div class="pipe-branches">
+              <span class="branch branch-gemini">Gemini</span>
+              <span class="branch branch-openai">OpenAI</span>
+              <span class="branch branch-ocr">OCR</span>
+            </div>
+          </div>
+          <div class="pipe-rail"><span></span></div>
+          <div class="pipe-node pipe-output">
+            <span class="pipe-icon">✓</span>
+            <strong>Structured context</strong>
+            <small>ordered JSON · file tree</small>
+          </div>
+        </div>
+        <ol class="steps-grid">
+          <li class="reveal">
+            <span class="step-num">01</span>
+            <h3>Prepare once</h3>
+            <p>Orientation, resize, compression, and local measurement happen before anything leaves your machine.</p>
+          </li>
+          <li class="reveal" data-reveal-delay="1">
+            <span class="step-num">02</span>
+            <h3>Route safely</h3>
+            <p>Gemini, then OpenAI low-detail, then local OCR. Quota and failures fall back instead of failing.</p>
+          </li>
+          <li class="reveal" data-reveal-delay="2">
+            <span class="step-num">03</span>
+            <h3>Return structure</h3>
+            <p>Text, layout, colors, hierarchy, accessibility notes — delivered as delimited blocks your model can parse.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="providers">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="section-index">03 / Provider routing</span>
+          <h2>One install. Every vision mode.</h2>
+          <p>Client setup and vision providers are fully separate. Install once, then switch between free local OCR and AI vision whenever you like.</p>
+        </div>
+        <div class="mode-grid">
+          <article class="mode-card mode-off reveal">
+            <span class="mode-tag">Default</span>
+            <h3>No API key</h3>
+            <p>Free local text extraction with Tesseract OCR — works immediately.</p>
+            <div class="mode-chain"><span>OCR</span></div>
+          </article>
+          <article class="mode-card reveal" data-reveal-delay="1">
+            <span class="mode-tag">Recommended</span>
+            <h3><code>auto</code></h3>
+            <p>Uses every available fallback automatically.</p>
+            <div class="mode-chain"><span>Gemini</span><i>→</i><span>OpenAI</span><i>→</i><span>OCR</span></div>
+          </article>
+          <article class="mode-card reveal" data-reveal-delay="2">
+            <span class="mode-tag">AI first</span>
+            <h3><code>gemini</code></h3>
+            <p>Prefer Gemini Flash, keep local OCR as the safe fallback.</p>
+            <div class="mode-chain"><span>Gemini</span><i>→</i><span>OCR</span></div>
+          </article>
+          <article class="mode-card reveal" data-reveal-delay="3">
+            <span class="mode-tag">Cost aware</span>
+            <h3><code>openai</code></h3>
+            <p>Low-detail <code>gpt-4o-mini</code> vision, compressed to a 1024px box.</p>
+            <div class="mode-chain"><span>OpenAI</span><i>→</i><span>OCR</span></div>
+          </article>
+          <article class="mode-card reveal" data-reveal-delay="4">
+            <span class="mode-tag">Private</span>
+            <h3><code>ocr</code></h3>
+            <p>Force local processing even when keys stay saved.</p>
+            <div class="mode-chain"><span>OCR only</span></div>
+          </article>
+        </div>
+        <div class="provider-cta reveal">
+          <div>
+            <h3>Change providers from a friendly menu</h3>
+            <p>Add, replace, or remove keys, switch providers, check status, or turn AI off — all without touching your MCP configuration.</p>
+          </div>
+          <div class="command-block command-block-inline">
+            <span class="command-prompt" aria-hidden="true">$</span>
+            <code>npx --yes omni-vision-pro@latest provider</code>
+            <button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest provider" aria-label="Copy provider command"><span data-copy-label>Copy</span></button>
+          </div>
+          <p class="secure-note"><span aria-hidden="true">🔒</span> Keys are pasted into a hidden prompt and stored in Omni's private settings — never in chat text, shell history, or client config files.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim" id="tools">
+      <div class="section-shell">
+        <div class="section-heading section-heading-left reveal">
+          <span class="section-index">04 / MCP tools</span>
+          <h2>Small surface. Serious coverage.</h2>
+          <p>Three focused tools, each returning bounded, structured context designed for an LLM to consume immediately.</p>
+        </div>
+        <div class="tool-grid">
+          <article class="tool-card reveal">
+            <div class="tool-head"><span>01</span><b>VISION</b></div>
+            <h3>analyze_images</h3>
+            <p>One screenshot or an ordered batch, with provider-aware JSON output for every index.</p>
+            <pre class="code-block"><span class="cb-head"><span>request.json</span><button type="button" class="copy-button copy-button-mono" data-copy='{&#10;  "image_paths": ["home.png", "settings.png"],&#10;  "prompt": "Focus on layout"&#10;}' aria-label="Copy example"><span data-copy-label>Copy</span></button></span><code>{
+  "image_paths": ["home.png", "settings.png"],
+  "prompt": "Focus on layout"
+}</code></pre>
+          </article>
+          <article class="tool-card reveal" data-reveal-delay="1">
+            <div class="tool-head"><span>02</span><b>SOURCE</b></div>
+            <h3>read_code_context</h3>
+            <p>A safe file tree followed by readable source contents — generated folders and secrets skipped.</p>
+            <pre class="code-block"><span class="cb-head"><span>request.json</span><button type="button" class="copy-button copy-button-mono" data-copy='{&#10;  "path": "C:/Projects/app/src",&#10;  "max_files": 80,&#10;  "max_output_bytes": 750000&#10;}' aria-label="Copy example"><span data-copy-label>Copy</span></button></span><code>{
+  "path": "C:/Projects/app/src",
+  "max_files": 80,
+  "max_output_bytes": 750000
+}</code></pre>
+          </article>
+          <article class="tool-card reveal" data-reveal-delay="2">
+            <div class="tool-head"><span>03</span><b>ARCHIVE</b></div>
+            <h3>read_zip_context</h3>
+            <p>A virtual archive tree inspected in memory — nothing is ever extracted to disk.</p>
+            <pre class="code-block"><span class="cb-head"><span>request.json</span><button type="button" class="copy-button copy-button-mono" data-copy='{&#10;  "path": "C:/Downloads/app.zip",&#10;  "max_files": 80,&#10;  "max_output_bytes": 750000&#10;}' aria-label="Copy example"><span data-copy-label>Copy</span></button></span><code>{
+  "path": "C:/Downloads/app.zip",
+  "max_files": 80,
+  "max_output_bytes": 750000
+}</code></pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="setup-docs">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <span class="section-index">05 / Setup docs</span>
+          <h2>Start in one command. Stay in control.</h2>
+          <p>The automatic installer handles everything for you — or pick your client and follow the manual guide. Both paths take under two minutes.</p>
+        </div>
+
+        <div class="quickstart reveal">
+          <div class="quickstart-head">
+            <div>
+              <span class="card-chip">Fastest path</span>
+              <h3>One-click setup for Codex, OpenCode, Claude Code &amp; Cursor</h3>
+            </div>
+            <span class="ready-badge"><span class="status-dot" aria-hidden="true"></span>Ready to run</span>
+          </div>
+          <p class="quickstart-lede">Paste this into a supported AI chat or your terminal. Omni detects clients, installs a private version-pinned runtime, writes the MCP configuration, and verifies all three tools — without touching unrelated settings.</p>
+          <div class="command-block command-block-large">
+            <span class="command-prompt" aria-hidden="true">$</span>
+            <code>npx --yes omni-vision-pro@latest setup --yes</code>
+            <button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest setup --yes" aria-label="Copy one-click setup command"><span data-copy-label>Copy</span></button>
+          </div>
+          <ol class="quickstart-steps">
+            <li><span>01</span>Detect supported clients &amp; valid config locations</li>
+            <li><span>02</span>Pin a private, predictable runtime version</li>
+            <li><span>03</span>Write config safely — backups before changes</li>
+            <li><span>04</span>Verify image, code &amp; ZIP tools end to end</li>
+          </ol>
+          <div class="quickstart-notes">
+            <p><strong>Then restart the AI client once.</strong> Local OCR is ready immediately — no API key needed.</p>
+            <p><strong>Prerequisite:</strong> Node.js 20.10 or newer. <button type="button" class="link-button" data-copy="npx --yes omni-vision-pro@latest doctor" data-copy-label-desc="doctor">Verify anytime with <code>doctor</code></button></p>
+          </div>
+        </div>
+
+        <div class="docs-layout reveal">
+          <aside class="docs-sidebar">
+            <p class="docs-sidebar-title">Manual setup by client</p>
+            <div class="docs-tabs" role="tablist" aria-label="MCP client setup guides">
+              <button type="button" role="tab" aria-selected="true" id="tab-codex" aria-controls="panel-codex" tabindex="0" data-doc-tab="codex"><span>01</span>Codex</button>
+              <button type="button" role="tab" aria-selected="false" id="tab-opencode" aria-controls="panel-opencode" tabindex="-1" data-doc-tab="opencode"><span>02</span>OpenCode</button>
+              <button type="button" role="tab" aria-selected="false" id="tab-claude-code" aria-controls="panel-claude-code" tabindex="-1" data-doc-tab="claude-code"><span>03</span>Claude Code</button>
+              <button type="button" role="tab" aria-selected="false" id="tab-cursor" aria-controls="panel-cursor" tabindex="-1" data-doc-tab="cursor"><span>04</span>Cursor</button>
+              <button type="button" role="tab" aria-selected="false" id="tab-vscode" aria-controls="panel-vscode" tabindex="-1" data-doc-tab="vscode"><span>05</span>VS Code</button>
+              <button type="button" role="tab" aria-selected="false" id="tab-claude-desktop" aria-controls="panel-claude-desktop" tabindex="-1" data-doc-tab="claude-desktop"><span>06</span>Claude Desktop</button>
+            </div>
+            <a class="docs-sidebar-link" href="https://github.com/0xnurrabby/omni-vision-pro#troubleshooting" target="_blank" rel="noreferrer">Troubleshooting on GitHub ↗</a>
+          </aside>
+          <div class="docs-content">
+
+            <article class="docs-panel is-active" role="tabpanel" id="panel-codex" aria-labelledby="tab-codex" data-doc-panel="codex">
+              <div class="docs-panel-head"><span>01</span><div><p>Codex</p><h3>CLI, desktop app, and IDE extension</h3></div></div>
+              <p class="docs-lede">Automatic setup configures the shared Codex CLI, so every Codex surface picks it up.</p>
+              <h4>User-wide command</h4>
+              <div class="docs-code-row"><code>codex mcp add omni-vision-pro -- npx --yes omni-vision-pro@latest serve</code><button type="button" class="copy-button" data-copy="codex mcp add omni-vision-pro -- npx --yes omni-vision-pro@latest serve" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+              <h4>Manual TOML</h4>
+              <pre class="docs-code-block"><code>[mcp_servers.omni-vision-pro]
+command = "npx"
+args = ["--yes", "omni-vision-pro@latest", "serve"]
+startup_timeout_sec = 120
+tool_timeout_sec = 1200
+enabled = true</code></pre>
+              <p class="docs-note">Save in <code>~/.codex/config.toml</code> (or a project <code>.codex/config.toml</code>), start a new session, then check <code>/mcp</code>.</p>
+            </article>
+
+            <article class="docs-panel" role="tabpanel" hidden id="panel-opencode" aria-labelledby="tab-opencode" data-doc-panel="opencode">
+              <div class="docs-panel-head"><span>02</span><div><p>OpenCode</p><h3>Project or user configuration</h3></div></div>
+              <p class="docs-lede">Use <code>opencode.json</code> or <code>opencode.jsonc</code>. The extended timeout supports local OCR and ordered batches.</p>
+              <pre class="docs-code-block"><code>{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "omni-vision-pro": {
+      "type": "local",
+      "command": ["npx", "--yes", "omni-vision-pro@latest", "serve"],
+      "enabled": true,
+      "timeout": 600000
+    }
+  }
+}</code></pre>
+              <p class="docs-note">Add it to a project config or <code>~/.config/opencode/opencode.json</code>, restart OpenCode, then run <code>opencode mcp list</code>.</p>
+            </article>
+
+            <article class="docs-panel" role="tabpanel" hidden id="panel-claude-code" aria-labelledby="tab-claude-code" data-doc-panel="claude-code">
+              <div class="docs-panel-head"><span>03</span><div><p>Claude Code</p><h3>User-wide or project-only setup</h3></div></div>
+              <h4>User scope</h4>
+              <div class="docs-code-row"><code>claude mcp add --scope user --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve</code><button type="button" class="copy-button" data-copy="claude mcp add --scope user --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+              <h4>Project scope</h4>
+              <div class="docs-code-row"><code>claude mcp add --scope project --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve</code><button type="button" class="copy-button" data-copy="claude mcp add --scope project --transport stdio omni-vision-pro -- npx --yes omni-vision-pro@latest serve" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+              <p class="docs-note">Project entries live in <code>.mcp.json</code> and may require approval. Verify with <code>claude mcp list</code>.</p>
+            </article>
+
+            <article class="docs-panel" role="tabpanel" hidden id="panel-cursor" aria-labelledby="tab-cursor" data-doc-panel="cursor">
+              <div class="docs-panel-head"><span>04</span><div><p>Cursor</p><h3>One-click install link or JSON</h3></div></div>
+              <a class="button button-primary docs-primary-link" href="cursor://anysphere.cursor-deeplink/mcp/install?name=omni-vision-pro&amp;config=eyJ0eXBlIjoic3RkaW8iLCJjb21tYW5kIjoibnB4IiwiYXJncyI6WyItLXllcyIsIm9tbmktdmlzaW9uLXByb0BsYXRlc3QiLCJzZXJ2ZSJdfQ==">Add omni-vision-pro to Cursor</a>
+              <h4>Manual JSON</h4>
+              <pre class="docs-code-block"><code>{
+  "mcpServers": {
+    "omni-vision-pro": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["--yes", "omni-vision-pro@latest", "serve"]
+    }
+  }
+}</code></pre>
+              <p class="docs-note">Use <code>~/.cursor/mcp.json</code> for all projects or <code>.cursor/mcp.json</code> for one, then reload the window.</p>
+            </article>
+
+            <article class="docs-panel" role="tabpanel" hidden id="panel-vscode" aria-labelledby="tab-vscode" data-doc-panel="vscode">
+              <div class="docs-panel-head"><span>05</span><div><p>Visual Studio Code</p><h3>Workspace MCP configuration</h3></div></div>
+              <pre class="docs-code-block"><code>{
+  "servers": {
+    "omni-vision-pro": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["--yes", "omni-vision-pro@latest", "serve"]
+    }
+  }
+}</code></pre>
+              <p class="docs-note">Create <code>.vscode/mcp.json</code>, start it from the inline action, run <strong>MCP: List Servers</strong>, and approve the trust prompt.</p>
+            </article>
+
+            <article class="docs-panel" role="tabpanel" hidden id="panel-claude-desktop" aria-labelledby="tab-claude-desktop" data-doc-panel="claude-desktop">
+              <div class="docs-panel-head"><span>06</span><div><p>Claude Desktop</p><h3>Standard stdio server entry</h3></div></div>
+              <pre class="docs-code-block"><code>{
+  "mcpServers": {
+    "omni-vision-pro": {
+      "command": "npx",
+      "args": ["--yes", "omni-vision-pro@latest", "serve"]
+    }
+  }
+}</code></pre>
+              <div class="location-list">
+                <div><strong>Windows</strong><code>%APPDATA%\Claude\claude_desktop_config.json</code></div>
+                <div><strong>macOS</strong><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></div>
+              </div>
+              <p class="docs-note">Completely quit and reopen Claude Desktop after saving.</p>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="provider-docs reveal">
+          <div class="provider-docs-head">
+            <div>
+              <span class="card-chip">Optional but powerful</span>
+              <h3>Add AI vision: Gemini or OpenAI</h3>
+            </div>
+            <p>OCR reads text. AI vision also describes layout, buttons, colors, hierarchy, and structure. Keys are stored in a private Omni <code>.env</code> — never in client configs.</p>
+          </div>
+          <div class="provider-docs-grid">
+            <div class="provider-docs-col">
+              <h4>From a terminal</h4>
+              <div class="docs-code-row"><code>npx --yes omni-vision-pro@latest provider</code><button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest provider" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+              <p class="docs-note">Guided menu — paste your key into a hidden prompt. Keys never enter chat text, command arguments, or shell history.</p>
+            </div>
+            <div class="provider-docs-col">
+              <h4>From an AI chat, safely</h4>
+              <div class="docs-code-row"><code>npx --yes omni-vision-pro@latest provider set --from-clipboard</code><button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest provider set --from-clipboard" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+              <p class="docs-note">Copy only the key, then ask your AI to run this. It recognizes the provider, saves the key, and selects it.</p>
+            </div>
+            <div class="provider-docs-col">
+              <h4>Manual <code>.env</code> file</h4>
+              <pre class="docs-code-block docs-code-block-mini"><code>GEMINI_API_KEY=your_key_here
+# or OPENAI_API_KEY=your_key_here
+# OMNI_VISION_PROVIDER=auto | gemini | openai | ocr</code></pre>
+              <p class="docs-note"><code>%APPDATA%/omni-vision-pro/.env</code> on Windows · <code>~/.config/omni-vision-pro/.env</code> on macOS/Linux</p>
+            </div>
+          </div>
+          <div class="provider-quick-cmds">
+            <div class="docs-code-row"><code>npx --yes omni-vision-pro@latest provider status</code><button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest provider status" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+            <div class="docs-code-row"><code>npx --yes omni-vision-pro@latest provider on</code><button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest provider on" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+            <div class="docs-code-row"><code>npx --yes omni-vision-pro@latest provider off</code><button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest provider off" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+            <div class="docs-code-row"><code>npx --yes omni-vision-pro@latest doctor</code><button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest doctor" aria-label="Copy command"><span data-copy-label>Copy</span></button></div>
+          </div>
+          <div class="trouble-grid">
+            <div><strong>Clipboard import can't find the key?</strong><span>Copy only the key and run <code>provider set --from-clipboard</code> again.</span></div>
+            <div><strong>Key added but OCR still active?</strong><span>Run <code>provider status</code>, then <code>provider on</code>, then restart the client.</span></div>
+            <div><strong>Server not visible after setup?</strong><span>Run <code>doctor</code>, restart the client, and approve the trust prompt.</span></div>
+            <div><strong>OCR feels slow at first?</strong><span>The first request starts a local worker; keep tool timeouts above 90 seconds.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim" id="privacy">
+      <div class="section-shell privacy-shell">
+        <div class="privacy-copy reveal">
+          <span class="section-index">06 / Privacy</span>
+          <h2>Code and ZIPs never reach a vision provider.</h2>
+          <p>Only a resized image is sent to a configured vision provider. Code and ZIP contents are read locally and returned to your MCP host — which may pass context to its own model under its own policy. With no key, or with AI off, image processing stays local too.</p>
+          <ul class="privacy-list">
+            <li><span>✓</span>No filesystem extraction for ZIPs — ever</li>
+            <li><span>✓</span>Path traversal, symlink &amp; ZIP-bomb defenses</li>
+            <li><span>✓</span><code>.env</code>, <code>id_rsa</code>, and secrets auto-skipped</li>
+            <li><span>✓</span>Absolute host paths hidden by default</li>
+          </ul>
+          <a class="text-arrow-link" href="https://github.com/0xnurrabby/omni-vision-pro#privacy-and-safety" target="_blank" rel="noreferrer">Read the complete safety model <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="privacy-table reveal" data-reveal-delay="1">
+          <div class="privacy-row"><span>No API key</span><strong>Local OCR only</strong><i class="p-ok">✓</i></div>
+          <div class="privacy-row"><span>Gemini enabled</span><strong>Resized image → Google</strong><i class="p-warn">→</i></div>
+          <div class="privacy-row"><span>OpenAI enabled</span><strong>Low-detail image → OpenAI</strong><i class="p-warn">→</i></div>
+          <div class="privacy-row"><span>Code &amp; ZIP context</span><strong>Local processing</strong><i class="p-ok">✓</i></div>
+          <div class="privacy-row"><span>API keys</span><strong>Private Omni <code>.env</code></strong><i class="p-ok">✓</i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-shell faq-shell">
+        <div class="section-heading section-heading-left reveal">
+          <span class="section-index">07 / FAQ</span>
+          <h2>Questions, answered.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              <span>Do I need an API key to use it?</span>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="faq-body"><div class="faq-inner"><p>No. Local Tesseract OCR works immediately after setup, free of charge. Gemini or OpenAI keys are optional upgrades for richer AI vision — add them later whenever you want.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              <span>Which AI models does it work with?</span>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="faq-body"><div class="faq-inner"><p>Any text-only model behind a standard MCP host: DeepSeek, Codex, OpenCode, Claude Code, Cursor, VS Code, Claude Desktop, and more. The server speaks Model Context Protocol over stdio.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              <span>How does image analysis actually work?</span>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="faq-body"><div class="faq-inner"><p>Attachments are resolved from wherever your client lost them, prepared locally (orientation, resize, compression, measurement), then routed to the selected vision provider — or local OCR — with automatic fallback. The result returns as ordered, delimited context blocks.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              <span>Is my code or ZIP ever uploaded?</span>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="faq-body"><div class="faq-inner"><p>No. Only resized images may go to a configured cloud provider. Code and ZIP contents are processed entirely on your machine and returned to your MCP host.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              <span>What if a cloud provider fails?</span>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="faq-body"><div class="faq-inner"><p>Quota, timeouts, and unavailability never crash the server. The image is retried with local OCR, so your workflow keeps working.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              <span>How do I uninstall or check my setup?</span>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="faq-body"><div class="faq-inner"><p>Run <code>npx --yes omni-vision-pro@latest doctor</code> to verify anything, and <code>npx --yes omni-vision-pro@latest uninstall</code> to remove managed entries. Your private <code>.env</code> is kept so reinstalling never loses credentials.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section open-source-section" id="open-source">
+      <div class="open-source-card reveal">
+        <div class="os-glow" aria-hidden="true"></div>
+        <div class="os-head">
+          <span class="card-chip">Open source · MIT licensed</span>
+          <div class="os-stars">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.6-5 4.7 1.4 6.54L12 16.9l-5.9 3.2 1.4-6.54-5-4.7 6.6-.6L12 2Z"/></svg>
+            <span>Star the repo</span>
+          </div>
+        </div>
+        <h2>Inspect it. Improve it. Ship with confidence.</h2>
+        <p>The entire server is public on GitHub — attachment resolution, provider fallback, ZIP safeguards, and the one-click installer included.</p>
+        <div class="os-actions">
+          <a class="button button-primary button-large" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            View GitHub repository
+          </a>
+          <a class="button button-ghost button-large" href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noreferrer">Install from npm ↗</a>
+        </div>
+        <div class="os-repos">
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noreferrer"><code>0xnurrabby/omni-vision-pro</code><span>MCP server source ↗</span></a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro-site" target="_blank" rel="noreferrer"><code>0xnurrabby/omni-vision-pro-site</code><span>This website's source ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-shell reveal">
+        <span class="section-index">Ready in one command</span>
+        <h2>Give your AI the missing context.</h2>
+        <div class="command-block command-block-large">
+          <span class="command-prompt" aria-hidden="true">$</span>
+          <code>npx --yes omni-vision-pro@latest setup --yes</code>
+          <button type="button" class="copy-button" data-copy="npx --yes omni-vision-pro@latest setup --yes" aria-label="Copy one-click setup command"><span data-copy-label>Copy</span></button>
+        </div>
+        <a class="button button-primary button-large" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="omni-vision-pro home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-name">omni-vision-pro</span>
+        </a>
+        <p>Visual, code, and archive context for text-only AI models. Built for fast, safe context handoff between people, files, and models.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <strong>Product</strong>
+          <a href="#what-it-does">Capabilities</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#tools">MCP tools</a>
+          <a href="#privacy">Privacy</a>
+        </div>
+        <div>
+          <strong>Setup</strong>
+          <a href="#setup-docs">One-click setup</a>
+          <a href="#setup-docs">Manual guides</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro#troubleshooting" target="_blank" rel="noreferrer">Troubleshooting</a>
+        </div>
+        <div>
+          <strong>Open source</strong>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noreferrer">MCP server source ↗</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro-site" target="_blank" rel="noreferrer">Website source ↗</a>
+          <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noreferrer">npm package ↗</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noreferrer">MIT license ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Built for reliable context handoff.</span>
+      <span>© 2026 omni-vision-pro</span>
+    </div>
+  </footer>
+
+  <div class="copy-toast" role="status" aria-live="polite" data-copy-toast>Copied to clipboard</div>
+  <script src="script.js"></script>
+</body>
+</html>

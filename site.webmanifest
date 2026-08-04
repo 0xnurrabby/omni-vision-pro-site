@@ -1,0 +1,17 @@
+{
+  "name": "omni-vision-pro",
+  "short_name": "omni-vision-pro",
+  "description": "Eyes for text-only AI — visual, code, and ZIP context through one local MCP server.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06070f",
+  "theme_color": "#06070f",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

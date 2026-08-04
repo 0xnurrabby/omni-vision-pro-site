@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">omni-vision-pro</title>
+  <desc id="desc">A four-square context mark.</desc>
+  <rect width="64" height="64" rx="18" fill="#262452"/>
+  <g transform="translate(17 17)">
+    <rect width="13" height="13" rx="3" fill="#fff"/>
+    <rect x="17" width="13" height="13" rx="3" fill="#59cbd2" opacity=".92"/>
+    <rect y="17" width="13" height="13" rx="3" fill="#a88cff" opacity=".92"/>
+    <rect x="17" y="17" width="13" height="13" rx="3" fill="#1769ff"/>
+  </g>
+</svg>
