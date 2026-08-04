@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>omni-vision-pro ... eyes for text-only AI models</title>
+  <title>omni-vision-pro ... vision for text-only AI models</title>
   <meta name="description" content="Give DeepSeek, Codex, OpenCode, Claude Code, Cursor and other text-only models real vision. Analyze screenshots, inspect source trees and read ZIP archives through one local MCP server. One-command setup." />
-  <meta property="og:title" content="omni-vision-pro ... eyes for text-only AI models" />
+  <meta property="og:title" content="omni-vision-pro ... vision for text-only AI models" />
   <meta property="og:description" content="Resolve screenshots, inspect source trees, and read ZIP archives through one local MCP server. One-command setup, free local OCR, optional Gemini & OpenAI vision." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/" />
@@ -17,20 +17,11 @@
 </head>
 <body>
 
-  <svg class="svg-defs" aria-hidden="true">
-    <defs>
-      <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#2563eb"/>
-        <stop offset="1" stop-color="#06b6d4"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
   <div class="curtain" aria-hidden="true">
-    <svg class="curtain-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
-      <circle cx="12" cy="12" r="3"/>
-      <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    <svg class="curtain-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor"/>
     </svg>
   </div>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -40,10 +31,10 @@
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a class="brand" href="/" aria-label="omni-vision-pro ... back to home">
-        <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
-          <circle cx="12" cy="12" r="3"/>
-          <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+        <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="2" fill="#f59e0b"/>
         </svg>
         <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
       </a>
@@ -80,7 +71,7 @@
 
         <h1 class="hero-title">
           Give your AI the
-          <span class="grad-text italic">eyes</span> it
+          <span class="txt-sky italic">vision</span> it
           never had.
         </h1>
 
@@ -137,17 +128,17 @@
 
     <!-- ============ STATS ============ -->
     <section class="stats">
-      <div class="stat reveal"><div class="stat-num" data-count="3">0</div><div class="stat-label">MCP tools</div></div>
-      <div class="stat reveal" data-reveal-delay="80"><div class="stat-num" data-count="6">0</div><div class="stat-label">AI clients supported</div></div>
-      <div class="stat reveal" data-reveal-delay="160"><div class="stat-num" data-count="3">0</div><div class="stat-label">vision paths ... Gemini, OpenAI, OCR</div></div>
-      <div class="stat reveal" data-reveal-delay="240"><div class="stat-num"><span class="big-zero">0</span></div><div class="stat-label">API keys required to start</div></div>
+      <div class="stat reveal stat-c1"><div class="stat-num" data-count="3">0</div><div class="stat-label">MCP tools</div></div>
+      <div class="stat reveal stat-c2" data-reveal-delay="80"><div class="stat-num" data-count="6">0</div><div class="stat-label">AI clients supported</div></div>
+      <div class="stat reveal stat-c3" data-reveal-delay="160"><div class="stat-num" data-count="3">0</div><div class="stat-label">vision paths ... Gemini, OpenAI, OCR</div></div>
+      <div class="stat reveal stat-c4" data-reveal-delay="240"><div class="stat-num"><span class="big-zero">0</span></div><div class="stat-label">API keys required to start</div></div>
     </section>
 
     <!-- ============ WHAT IT DOES ============ -->
     <section class="section" id="features">
       <div class="section-head reveal">
-        <p class="kicker">What it does</p>
-        <h2>One server. <span class="grad-text">Three superpowers.</span></h2>
+        <p class="kicker kicker-blue">What it does</p>
+        <h2>One server. <span class="txt-blue">Three superpowers.</span></h2>
         <p class="section-sub">omni-vision-pro turns your text-only AI assistant into a multimodal powerhouse ... no new tool, no copy-paste folders, no cloud dependency.</p>
       </div>
 
@@ -206,7 +197,7 @@
     <section class="section section-alt">
       <div class="section-head reveal">
         <p class="kicker">How it works</p>
-        <h2>From screenshot to <span class="grad-text">structured context</span></h2>
+        <h2>From screenshot to <span class="txt-sky">structured context</span></h2>
         <p class="section-sub">A tiny local server sits next to your AI client and speaks the Model Context Protocol over stdio. Three steps, fully automatic.</p>
       </div>
 
@@ -235,23 +226,23 @@
     <!-- ============ ONE-CLICK SETUP ============ -->
     <section class="section" id="setup">
       <div class="section-head reveal">
-        <p class="kicker">One-click setup</p>
-        <h2>Running in <span class="grad-text">under a minute</span></h2>
+        <p class="kicker kicker-amber">One-click setup</p>
+        <h2>Running in <span class="txt-amber">under a minute</span></h2>
         <p class="section-sub">Paste one command into your AI chat ... or run it yourself. Detects clients, installs a pinned runtime, writes configs, and verifies all three tools.</p>
       </div>
 
       <div class="mini-setup">
-        <div class="mini-card reveal">
+        <div class="mini-card reveal c1">
           <div class="mini-num">STEP 01</div>
           <h3>Install once</h3>
           <p>One command detects your AI clients, installs a private version-pinned runtime and writes the MCP config. Setup is a one-time job.</p>
         </div>
-        <div class="mini-card reveal" data-reveal-delay="100">
+        <div class="mini-card reveal c2" data-reveal-delay="100">
           <div class="mini-num">STEP 02</div>
           <h3>Add AI vision ... optional</h3>
           <p>Add a Gemini or OpenAI key later through a hidden prompt or a clipboard import. Switching providers never touches your client config.</p>
         </div>
-        <div class="mini-card reveal" data-reveal-delay="200">
+        <div class="mini-card reveal c3" data-reveal-delay="200">
           <div class="mini-num">STEP 03</div>
           <h3>Restart &amp; ask</h3>
           <p>Reload your AI client and ask it to analyze a screenshot. No cloud key? Local Tesseract OCR handles it, free and private.</p>
@@ -272,8 +263,8 @@
     <!-- ============ PROVIDERS PREVIEW ============ -->
     <section class="section section-alt">
       <div class="section-head reveal">
-        <p class="kicker">Vision providers</p>
-        <h2>Local-first, <span class="grad-text">cloud-ready</span></h2>
+        <p class="kicker kicker-emerald">Vision providers</p>
+        <h2>Local-first, <span class="txt-emerald">cloud-ready</span></h2>
         <p class="section-sub">Start free with OCR. Add a Gemini or OpenAI key whenever you want ... your choice, switchable any time, without reinstalling.</p>
       </div>
 
@@ -311,7 +302,7 @@
     <!-- ============ FINAL CTA ============ -->
     <section class="final-cta">
       <div class="final-inner reveal">
-        <h2>Stop describing.<br /><span class="grad-text italic">Start showing.</span></h2>
+        <h2>Stop describing.<br /><span class="txt-sky italic">Start showing.</span></h2>
         <p>Install omni-vision-pro today and give your AI the context it's been missing.</p>
         <div class="final-btns">
           <button class="btn btn-primary btn-lg copy-btn" data-copy="npx --yes omni-vision-pro@latest setup --yes">
@@ -332,10 +323,10 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="brand" href="/">
-          <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
-            <circle cx="12" cy="12" r="3"/>
-            <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+          <svg class="brand-logo" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4.5" fill="none" stroke="#06b6d4" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="2" fill="#f59e0b"/>
           </svg>
           <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
         </a>
