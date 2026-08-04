@@ -1,5 +1,18 @@
-node_modules
-.vercel
+# dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# build
+dist/
+build/
+.next/
+
+# env
+.env
+.env.local
+
+# misc
 .DS_Store
 Thumbs.db
 *.log
