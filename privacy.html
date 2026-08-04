@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy &amp; safety ... omni-vision-pro</title>
+  <meta name="description" content="Where your data goes, built-in safeguards, API key storage and optional environment settings for omni-vision-pro." />
+  <meta property="og:title" content="Privacy &amp; safety ... omni-vision-pro" />
+  <meta property="og:description" content="Local-first by default. Keys in a private file. ZIPs inspected in memory." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/privacy" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <svg class="svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2563eb"/>
+        <stop offset="1" stop-color="#06b6d4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="curtain" aria-hidden="true">
+    <svg class="curtain-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+      <circle cx="12" cy="12" r="3"/>
+      <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="omni-vision-pro ... back to home">
+        <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+          <circle cx="12" cy="12" r="3"/>
+          <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+        </svg>
+        <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/features" data-page="features">Features</a>
+        <a href="/providers" data-page="providers">Providers</a>
+        <a href="/setup" data-page="setup">Setup</a>
+        <a href="/docs" data-page="docs">Docs</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Star
+        </a>
+        <a class="btn btn-primary btn-sm" href="/setup" data-page="setup">
+          <span class="dot-pulse" aria-hidden="true"></span> Get started
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-root">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-hero">
+      <div class="page-hero-inner reveal">
+        <a class="hero-badge" href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener">
+          <span class="badge-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          Local-first · Open source · MIT
+        </a>
+        <h1 class="page-title">Built <span class="grad-text italic">secure by default</span></h1>
+        <p class="page-sub">Every design decision in omni-vision-pro starts from one question ... where does this data go? Here is the honest answer, plus the safeguards and settings behind it.</p>
+      </div>
+    </section>
+
+    <!-- ============ DATA FLOW ============ -->
+    <section class="section">
+      <div class="privacy-grid">
+        <div class="priv-card reveal">
+          <h4>Where your data goes</h4>
+          <ul class="priv-list">
+            <li><span class="t-ok">✓</span> No key / AI off ... everything stays local via Tesseract</li>
+            <li><span class="t-ok">✓</span> Gemini mode ... only a <em>resized</em> image goes to Google</li>
+            <li><span class="t-ok">✓</span> OpenAI mode ... only a resized low-detail image goes to OpenAI</li>
+            <li><span class="t-ok">✓</span> Code &amp; ZIP context ... read locally, never sent to vision providers</li>
+            <li><span class="t-ok">✓</span> API keys ... stored in the private Omni .env, never in client JSON/TOML</li>
+          </ul>
+        </div>
+        <div class="priv-card reveal" data-reveal-delay="100">
+          <h4>Built-in safeguards</h4>
+          <ul class="priv-list">
+            <li><span class="t-ok">✓</span> ZIPs inspected in memory ... no filesystem extraction</li>
+            <li><span class="t-ok">✓</span> Path traversal, duplicate, encryption, CRC, ratio &amp; ZIP-bomb checks</li>
+            <li><span class="t-ok">✓</span> No symlink traversal</li>
+            <li><span class="t-ok">✓</span> Skips node_modules, .git, binaries &amp; secret files automatically</li>
+            <li><span class="t-ok">✓</span> Returned contents are marked untrusted ... models must not follow instructions inside files</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <section class="section section-alt">
+      <div class="section-head reveal">
+        <p class="kicker">Settings &amp; environment</p>
+        <h2>Private by <span class="grad-text">location</span></h2>
+        <p class="section-sub">Most users only need the provider menu. For fine-grained control, optional settings live in a private file that is never part of client JSON or TOML.</p>
+      </div>
+
+      <div class="faq-stack reveal">
+        <details class="faq">
+          <summary>Environment variables &amp; optional settings</summary>
+          <div class="faq-body">
+            <div class="env-grid">
+              <div class="env"><code>OMNI_ALLOWED_ROOTS</code><span>Restrict code/ZIP reading to these roots ... semicolon on Windows, colon on macOS/Linux</span></div>
+              <div class="env"><code>OMNI_INCLUDE_ABSOLUTE_PATHS=true</code><span>Include absolute paths in output</span></div>
+              <div class="env"><code>GEMINI_MODEL</code><span>Choose the Gemini model, e.g. gemini-2.5-flash</span></div>
+              <div class="env"><code>GEMINI_FALLBACK_MODEL</code><span>Gemini fallback model</span></div>
+              <div class="env"><code>OMNI_MAX_IMAGES</code><span>Max images per request (default 10)</span></div>
+              <div class="env"><code>OMNI_CLOUD_TIMEOUT_MS</code><span>Cloud timeout (default 30000)</span></div>
+              <div class="env"><code>OMNI_OCR_TIMEOUT_MS</code><span>OCR timeout (default 90000)</span></div>
+              <div class="env"><code>OMNI_VISION_PROVIDER</code><span>auto · gemini · openai · ocr</span></div>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>Where settings are stored</summary>
+          <div class="faq-body">
+            <div class="env-grid">
+              <div class="env"><code>Windows</code><span>%APPDATA%\omni-vision-pro\.env</span></div>
+              <div class="env"><code>macOS / Linux</code><span>${XDG_CONFIG_HOME:-~/.config}/omni-vision-pro/.env</span></div>
+            </div>
+            <p class="panel-note">The easiest setup is one line: <code>GEMINI_API_KEY=your_key</code> or <code>OPENAI_API_KEY=your_key</code>. Save the file and restart the AI client. With no OMNI_VISION_PROVIDER line, automatic mode is used ... a saved key enables AI vision and local OCR stays the final fallback.</p>
+            <p class="panel-note">Never pass API keys as command arguments. The CLI rejects key flags because shell history and process lists can expose them.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ SITE SECURITY ============ -->
+    <section class="section">
+      <div class="section-head reveal">
+        <p class="kicker">This website</p>
+        <h2>Hardened <span class="grad-text">delivery</span></h2>
+        <p class="section-sub">The site itself is served with strict security headers on every response ... HTTPS everywhere, no inline scripts, no third-party trackers.</p>
+      </div>
+      <div class="cap-grid reveal">
+        <div class="cap"><span class="cap-ico">🔒</span><h4>HTTPS everywhere</h4><p>Served over TLS with HSTS preload headers on every route.</p></div>
+        <div class="cap"><span class="cap-ico">🛡️</span><h4>Strict CSP</h4><p>Scripts, styles, fonts and images are locked to approved origins.</p></div>
+        <div class="cap"><span class="cap-ico">🚫</span><h4>No clickjacking</h4><p>X-Frame-Options DENY plus frame-ancestors none.</p></div>
+        <div class="cap"><span class="cap-ico">👀</span><h4>No tracking</h4><p>Zero analytics, zero cookies, zero third-party scripts.</p></div>
+      </div>
+      <div class="section-cta reveal">
+        <a class="btn btn-ghost btn-lg" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          View the source on GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+      <div class="final-inner reveal">
+        <h2>Private by default, <span class="grad-text italic">by design</span></h2>
+        <p>Install it locally ... it's open source, so you can verify every line.</p>
+        <div class="final-btns">
+          <button class="btn btn-primary btn-lg copy-btn" data-copy="npx --yes omni-vision-pro@latest setup --yes">
+            <span class="cmd-prefix">$</span> npx --yes omni-vision-pro@latest setup --yes
+            <svg class="copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <a class="btn btn-ghost btn-lg" href="/features" data-page="features">See the features</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+          </svg>
+          <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+        </a>
+        <p>Visual, code, and ZIP context for text-only AI models. Open source, MIT licensed.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="fcol">
+          <h5>Product</h5>
+          <a href="/features" data-page="features">Features</a>
+          <a href="/providers" data-page="providers">AI providers</a>
+          <a href="/setup" data-page="setup">One-click setup</a>
+          <a href="/docs" data-page="docs">Setup docs</a>
+        </div>
+        <div class="fcol">
+          <h5>Resources</h5>
+          <a href="/docs" data-page="docs">Setup docs</a>
+          <a href="/docs#troubleshooting" data-page="docs">Troubleshooting</a>
+          <a href="/privacy" data-page="privacy">Privacy &amp; safety</a>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a>
+        </div>
+        <div class="fcol">
+          <h5>Open source</h5>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub repo</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/issues" target="_blank" rel="noopener">Report an issue</a>
+          <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> omni-vision-pro ... built for fast, safe context handoff between people, files and models.</span>
+      <span class="footer-badges">
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/omni-vision-pro?style=flat-square&color=2563eb" alt="npm version" loading="lazy" /></a>
+        <a href="https://nodejs.org/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Node.js-20.10%2B-16a34a?style=flat-square" alt="Node.js 20.10+" loading="lazy" /></a>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-ec4899?style=flat-square" alt="MIT license" loading="lazy" /></a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

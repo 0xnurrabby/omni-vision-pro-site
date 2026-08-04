@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI providers ... omni-vision-pro</title>
+  <meta name="description" content="Local Tesseract OCR by default, with optional Gemini and OpenAI vision. Compare provider modes and switch any time without reinstalling." />
+  <meta property="og:title" content="AI providers ... omni-vision-pro" />
+  <meta property="og:description" content="Local-first vision: free OCR by default, optional Gemini & OpenAI, automatic fallback." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/providers" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <svg class="svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2563eb"/>
+        <stop offset="1" stop-color="#06b6d4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="curtain" aria-hidden="true">
+    <svg class="curtain-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+      <circle cx="12" cy="12" r="3"/>
+      <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="omni-vision-pro ... back to home">
+        <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+          <circle cx="12" cy="12" r="3"/>
+          <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+        </svg>
+        <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/features" data-page="features">Features</a>
+        <a href="/providers" data-page="providers">Providers</a>
+        <a href="/setup" data-page="setup">Setup</a>
+        <a href="/docs" data-page="docs">Docs</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Star
+        </a>
+        <a class="btn btn-primary btn-sm" href="/setup" data-page="setup">
+          <span class="dot-pulse" aria-hidden="true"></span> Get started
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-root">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-hero">
+      <div class="page-hero-inner reveal">
+        <a class="hero-badge" href="/setup" data-page="setup">
+          <span class="badge-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          Local-first vision
+        </a>
+        <h1 class="page-title">Free by default. <span class="grad-text italic">Cloud when you want.</span></h1>
+        <p class="page-sub">No key means local Tesseract OCR. Add Gemini or OpenAI and the server tries AI vision first, falling back to OCR automatically when a cloud call fails, hits quota, or goes away.</p>
+      </div>
+    </section>
+
+    <!-- ============ PROVIDERS ============ -->
+    <section class="section">
+      <div class="prov-grid">
+        <article class="prov-card reveal">
+          <span class="prov-tag">Default · Free</span>
+          <div class="prov-icon ic-emerald">Aa</div>
+          <h3>Tesseract OCR</h3>
+          <p>Local, private, instant ... works with zero API keys and zero internet. The safest fallback for every mode. The first OCR request starts a local worker.</p>
+          <div class="prov-status"><span class="status-dot g"></span> Always available</div>
+        </article>
+        <article class="prov-card reveal" data-reveal-delay="100">
+          <span class="prov-tag">AI vision</span>
+          <div class="prov-icon ic-blue">✦</div>
+          <h3>Gemini</h3>
+          <p>The compatibility path tries gemini-1.5-flash, then a fallback model. Choose a current model directly with the GEMINI_MODEL setting. Only the resized image leaves your machine.</p>
+          <div class="prov-status"><span class="status-dot b"></span> Resized image only</div>
+        </article>
+        <article class="prov-card reveal" data-reveal-delay="200">
+          <span class="prov-tag">AI vision</span>
+          <div class="prov-icon ic-cyan">◯</div>
+          <h3>OpenAI</h3>
+          <p>gpt-4o-mini with an explicit low-detail setting. EXIF orientation applied, image limited to a 1024px box and compressed with sharp to keep cost predictable.</p>
+          <div class="prov-status"><span class="status-dot b"></span> Resized image only</div>
+        </article>
+      </div>
+
+      <div class="mode-table reveal">
+        <h3 class="mode-title">Provider modes</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Mode</th><th>Processing order</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>no key</code></td><td><span class="t-ok">OCR</span></td><td>Free local text extraction, works immediately</td></tr>
+              <tr><td><code>auto</code></td><td>Gemini → OpenAI → <span class="t-ok">OCR</span></td><td>Uses every available fallback automatically</td></tr>
+              <tr><td><code>gemini</code></td><td>Gemini → <span class="t-ok">OCR</span></td><td>Prefer Gemini, keep local OCR as the safety net</td></tr>
+              <tr><td><code>openai</code></td><td>gpt-4o-mini → <span class="t-ok">OCR</span></td><td>Prefer low-detail OpenAI vision</td></tr>
+              <tr><td><code>ocr</code></td><td><span class="t-ok">OCR</span> only</td><td>AI off ... never calls cloud, even with saved keys</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Client setup and provider settings are separate. Install the MCP server once, then switch providers whenever you want. Set <code>OMNI_VISION_PROVIDER</code> in the private <code>.env</code>, or use the <code>provider</code> menu.</p>
+      </div>
+    </section>
+
+    <!-- ============ SWITCHING ============ -->
+    <section class="section section-alt">
+      <div class="section-head reveal">
+        <p class="kicker">Switching providers</p>
+        <h2>One menu, <span class="grad-text">full control</span></h2>
+        <p class="section-sub">The friendly terminal menu handles keys and modes. Adding or replacing a key selects that provider instantly; turning AI off keeps keys for later.</p>
+      </div>
+
+      <div class="setup-grid">
+        <div class="setup-card reveal">
+          <div class="setup-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body"><h4>Open the provider menu</h4>
+                <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider">
+                  <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest provider</code>
+                  <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+                <p class="step-note">Choose Gemini or OpenAI and paste the key into a hidden prompt.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body"><h4>Or import a key safely from chat</h4>
+                <p>Copy only the key, then ask your AI chat to run this. It never enters chat text, arguments, shell history or client JSON/TOML.</p>
+                <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider set --from-clipboard">
+                  <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest provider set --from-clipboard</code>
+                  <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+                <p class="step-note">Windows and macOS work out of the box. Linux needs wl-paste or xclip.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body"><h4>Check, toggle, switch</h4>
+                <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider status">
+                  <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest provider status</code>
+                  <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+                <p class="step-note">Then restart or reload your AI client. Keys added via process variables or a project .env are removed from that source.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="setup-side reveal" data-reveal-delay="150">
+          <div class="side-card">
+            <h4>Quick toggles</h4>
+            <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider on">
+              <code><span class="c-prompt">$</span> provider on</code>
+              <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+            </div>
+            <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider off">
+              <code><span class="c-prompt">$</span> provider off</code>
+              <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+            </div>
+            <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider use auto">
+              <code><span class="c-prompt">$</span> provider use auto</code>
+              <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+            </div>
+            <p class="step-note">Keys stay private in the Omni .env ... never in client JSON or TOML.</p>
+          </div>
+          <div class="side-card">
+            <h4>Key safety</h4>
+            <ul class="req-list">
+              <li>No key flags ... the CLI rejects them</li>
+              <li>Hidden terminal prompts</li>
+              <li>Clipboard import for chat</li>
+              <li>Private .env storage</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+      <div class="final-inner reveal">
+        <h2>Start free, <span class="grad-text italic">upgrade anytime</span></h2>
+        <p>Local OCR works right now. Add Gemini or OpenAI whenever you're ready.</p>
+        <div class="final-btns">
+          <button class="btn btn-primary btn-lg copy-btn" data-copy="npx --yes omni-vision-pro@latest setup --yes">
+            <span class="cmd-prefix">$</span> npx --yes omni-vision-pro@latest setup --yes
+            <svg class="copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <a class="btn btn-ghost btn-lg" href="/privacy" data-page="privacy">Read the privacy policy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+          </svg>
+          <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+        </a>
+        <p>Visual, code, and ZIP context for text-only AI models. Open source, MIT licensed.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="fcol">
+          <h5>Product</h5>
+          <a href="/features" data-page="features">Features</a>
+          <a href="/providers" data-page="providers">AI providers</a>
+          <a href="/setup" data-page="setup">One-click setup</a>
+          <a href="/docs" data-page="docs">Setup docs</a>
+        </div>
+        <div class="fcol">
+          <h5>Resources</h5>
+          <a href="/docs" data-page="docs">Setup docs</a>
+          <a href="/docs#troubleshooting" data-page="docs">Troubleshooting</a>
+          <a href="/privacy" data-page="privacy">Privacy &amp; safety</a>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a>
+        </div>
+        <div class="fcol">
+          <h5>Open source</h5>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub repo</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/issues" target="_blank" rel="noopener">Report an issue</a>
+          <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> omni-vision-pro ... built for fast, safe context handoff between people, files and models.</span>
+      <span class="footer-badges">
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/omni-vision-pro?style=flat-square&color=2563eb" alt="npm version" loading="lazy" /></a>
+        <a href="https://nodejs.org/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Node.js-20.10%2B-16a34a?style=flat-square" alt="Node.js 20.10+" loading="lazy" /></a>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-ec4899?style=flat-square" alt="MIT license" loading="lazy" /></a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

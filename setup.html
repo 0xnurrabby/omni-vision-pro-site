@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One-click setup ... omni-vision-pro</title>
+  <meta name="description" content="Install omni-vision-pro in under a minute. One command detects your AI clients, installs a pinned runtime, writes configs and verifies all three MCP tools." />
+  <meta property="og:title" content="One-click setup ... omni-vision-pro" />
+  <meta property="og:description" content="npx --yes omni-vision-pro@latest setup --yes ... running in under a minute." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omni-vision-pro-site.vercel.app/setup" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <svg class="svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2563eb"/>
+        <stop offset="1" stop-color="#06b6d4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="curtain" aria-hidden="true">
+    <svg class="curtain-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+      <circle cx="12" cy="12" r="3"/>
+      <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="omni-vision-pro ... back to home">
+        <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+          <circle cx="12" cy="12" r="3"/>
+          <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+        </svg>
+        <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/features" data-page="features">Features</a>
+        <a href="/providers" data-page="providers">Providers</a>
+        <a href="/setup" data-page="setup">Setup</a>
+        <a href="/docs" data-page="docs">Docs</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 0 0 8.3-11.4A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Star
+        </a>
+        <a class="btn btn-primary btn-sm" href="/setup" data-page="setup">
+          <span class="dot-pulse" aria-hidden="true"></span> Get started
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-root">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-hero">
+      <div class="page-hero-inner reveal">
+        <a class="hero-badge" href="https://nodejs.org/" target="_blank" rel="noopener">
+          <span class="badge-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </span>
+          Node.js 20.10 or newer required
+        </a>
+        <h1 class="page-title">Running in <span class="grad-text italic">under a minute</span></h1>
+        <p class="page-sub">Paste one command into your AI chat ... or run it yourself. It detects supported clients, installs a private version-pinned runtime, writes the MCP configuration, and verifies all three tools.</p>
+        <div class="code-block launch-block" data-copy="npx --yes omni-vision-pro@latest setup --yes">
+          <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest setup --yes</code>
+          <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SETUP STEPS ============ -->
+    <section class="section">
+      <div class="setup-grid">
+        <div class="setup-card reveal">
+          <div class="setup-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body"><h4>Install once, from anywhere</h4>
+                <p>Paste this into Codex, OpenCode, Claude Code or Cursor chat ... or your terminal:</p>
+                <div class="code-block" data-copy="npx --yes omni-vision-pro@latest setup --yes">
+                  <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest setup --yes</code>
+                  <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+                <p class="step-note">Setup is <strong>one-time</strong>. Adding an API key later never touches your client config.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body"><h4>Add AI vision ... optional</h4>
+                <p>Pick Gemini or OpenAI through a friendly menu and paste your key into a hidden prompt:</p>
+                <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider">
+                  <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest provider</code>
+                  <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+                <p class="step-note">Or import a copied key safely from chat ... it never touches shell history:</p>
+                <div class="code-block" data-copy="npx --yes omni-vision-pro@latest provider set --from-clipboard">
+                  <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest provider set --from-clipboard</code>
+                  <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body"><h4>Restart, reload &amp; ask</h4>
+                <p>Reload your AI client, then just say ...</p>
+                <div class="code-block quote-block">
+                  <code>“Use omni-vision-pro to analyze this screenshot. Return the visible text, UI hierarchy, layout, colors, interactions, accessibility issues, and reusable components.”</code>
+                </div>
+                <p class="step-note">With no cloud key, images are processed locally with Tesseract OCR ... free and private.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="setup-side reveal" data-reveal-delay="150">
+          <div class="side-card">
+            <h4>Health check</h4>
+            <p>Verify setup at any time:</p>
+            <div class="code-block" data-copy="npx --yes omni-vision-pro@latest doctor">
+              <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest doctor</code>
+              <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+            </div>
+            <p class="step-note">Also supports <code>doctor cursor</code>.</p>
+          </div>
+          <div class="side-card">
+            <h4>Requirements</h4>
+            <ul class="req-list">
+              <li>Node.js <strong>20.10+</strong></li>
+              <li>One of the supported AI clients</li>
+              <li><strong>Zero</strong> API keys to begin</li>
+            </ul>
+          </div>
+          <div class="side-card">
+            <h4>Uninstall</h4>
+            <p>Removes only installer-managed entries and keeps your private .env, so reinstalling never loses credentials.</p>
+            <div class="code-block" data-copy="npx --yes omni-vision-pro@latest uninstall --all">
+              <code><span class="c-prompt">$</span> npx --yes omni-vision-pro@latest uninstall --all</code>
+              <button class="code-copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+            </div>
+            <p class="step-note">Delete the private .env file separately to erase stored keys.</p>
+          </div>
+          <div class="side-card">
+            <h4>Manual setup?</h4>
+            <p>Per-client configuration for Codex, OpenCode, Claude Code, Cursor, VS Code &amp; Claude Desktop.</p>
+            <a class="btn btn-ghost btn-sm" href="/docs" data-page="docs">Open setup docs</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ COMMANDS ============ -->
+    <section class="section section-alt">
+      <div class="section-head reveal">
+        <p class="kicker">Command reference</p>
+        <h2>Full control from <span class="grad-text">the terminal</span></h2>
+        <p class="section-sub">Provider settings and client setup are separate ... install once, then switch providers whenever you like.</p>
+      </div>
+      <div class="cmd-grid reveal">
+        <div class="cmd-card"><code class="cmd-main">setup --yes</code><p>Detect clients, install runtime, write config, verify tools.</p></div>
+        <div class="cmd-card"><code class="cmd-main">setup</code><p>Guided client-selection prompt.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider</code><p>Friendly menu for keys &amp; mode switching.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider status</code><p>Show active mode without revealing keys.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider on / off</code><p>Toggle AI vision; keys are kept for later.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider use gemini|openai|auto</code><p>Choose how configured providers are used.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider set / replace</code><p>Add or replace a key via hidden prompt.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider set --from-clipboard</code><p>Import a copied key ... never in shell history.</p></div>
+        <div class="cmd-card"><code class="cmd-main">provider remove gemini|openai|all</code><p>Delete saved keys from private settings.</p></div>
+        <div class="cmd-card"><code class="cmd-main">doctor</code><p>Verify setup &amp; client entries.</p></div>
+        <div class="cmd-card"><code class="cmd-main">uninstall / uninstall --all</code><p>Remove only installer-managed entries; keep keys.</p></div>
+        <div class="cmd-card"><code class="cmd-main">serve</code><p>Launch the MCP server (stdio).</p></div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+      <div class="final-inner reveal">
+        <h2>One command. <span class="grad-text italic">All clients.</span></h2>
+        <p>Skip the manual work ... let the installer detect, configure and verify everything for you.</p>
+        <div class="final-btns">
+          <button class="btn btn-primary btn-lg copy-btn" data-copy="npx --yes omni-vision-pro@latest setup --yes">
+            <span class="cmd-prefix">$</span> npx --yes omni-vision-pro@latest setup --yes
+            <svg class="copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <a class="btn btn-ghost btn-lg" href="/docs" data-page="docs">Manual setup docs</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="1" fill="#06b6d4" stroke="none"/>
+          </svg>
+          <span class="brand-text">omni<span class="grad-text">vision</span><span class="brand-dim">-pro</span></span>
+        </a>
+        <p>Visual, code, and ZIP context for text-only AI models. Open source, MIT licensed.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="fcol">
+          <h5>Product</h5>
+          <a href="/features" data-page="features">Features</a>
+          <a href="/providers" data-page="providers">AI providers</a>
+          <a href="/setup" data-page="setup">One-click setup</a>
+          <a href="/docs" data-page="docs">Setup docs</a>
+        </div>
+        <div class="fcol">
+          <h5>Resources</h5>
+          <a href="/docs" data-page="docs">Setup docs</a>
+          <a href="/docs#troubleshooting" data-page="docs">Troubleshooting</a>
+          <a href="/privacy" data-page="privacy">Privacy &amp; safety</a>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a>
+        </div>
+        <div class="fcol">
+          <h5>Open source</h5>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro" target="_blank" rel="noopener">GitHub repo</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+          <a href="https://github.com/0xnurrabby/omni-vision-pro/issues" target="_blank" rel="noopener">Report an issue</a>
+          <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener">npm package</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> omni-vision-pro ... built for fast, safe context handoff between people, files and models.</span>
+      <span class="footer-badges">
+        <a href="https://www.npmjs.com/package/omni-vision-pro" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/omni-vision-pro?style=flat-square&color=2563eb" alt="npm version" loading="lazy" /></a>
+        <a href="https://nodejs.org/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Node.js-20.10%2B-16a34a?style=flat-square" alt="Node.js 20.10+" loading="lazy" /></a>
+        <a href="https://github.com/0xnurrabby/omni-vision-pro/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-ec4899?style=flat-square" alt="MIT license" loading="lazy" /></a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

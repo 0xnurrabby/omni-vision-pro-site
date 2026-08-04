@@ -1,4 +1,4 @@
-/* omni-vision-pro site — interactions, animations & smooth page transitions */
+/* omni-vision-pro site ... interactions, animations & smooth page transitions */
 (function () {
   "use strict";
 
@@ -6,8 +6,23 @@
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
   var transitionBusy = false;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- helpers ---------- */
+
+  function canonical(pathOrHref) {
+    var p = String(pathOrHref || "/");
+    p = p.replace(/^https?:\/\/[^/]+/, "");
+    var qi = p.indexOf("?");
+    if (qi !== -1) p = p.slice(0, qi);
+    var hi = p.indexOf("#");
+    if (hi !== -1) p = p.slice(0, hi);
+    if (p === "" || p === "/") return "index.html";
+    var last = p.split("/").pop();
+    if (!last) return "index.html";
+    return /\.html$/.test(last) ? last : last + ".html";
+  }
+  function pageKey() { return canonical(window.location.href); }
 
   function copyText(text, done) {
     if (navigator.clipboard && window.isSecureContext) {
@@ -27,26 +42,16 @@
     document.body.removeChild(ta);
   }
 
-  function stripHash(url) { return url.split("#")[0]; }
-  function currentPath() {
-    var p = window.location.pathname;
-    if (p === "/" || p === "" || /\/index\.html$/.test(p)) return "index.html";
-    var last = p.split("/").pop() || "index.html";
-    return /\.html$/.test(last) ? last : last + ".html";
-  }
-
   /* ---------- init page (runs on load & after each transition) ---------- */
 
-  function initPage() {
+  function initPage(keyOverride) {
     var nav = $("#nav");
 
-    /* active nav link */
-    var page = currentPath();
+    var key = (keyOverride || pageKey()).replace(/\.html$/, "");
     $$(".nav-links a[data-page], .nav-cta a[data-page], .footer-cols a[data-page]").forEach(function (a) {
-      a.classList.toggle("active", a.getAttribute("data-page") === (page === "docs.html" ? "docs" : "home"));
+      a.classList.toggle("active", a.getAttribute("data-page") === key);
     });
 
-    /* nav on scroll */
     function onScroll() {
       if (!nav) return;
       if (window.scrollY > 24) nav.classList.add("scrolled");
@@ -55,7 +60,6 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    /* reveal on scroll */
     var revealEls = $$(".reveal");
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
@@ -75,7 +79,6 @@
       revealEls.forEach(function (el) { el.classList.add("visible"); });
     }
 
-    /* stat counters */
     function animateCount(el) {
       var target = parseInt(el.getAttribute("data-count"), 10);
       if (isNaN(target)) return;
@@ -101,14 +104,7 @@
       $$(".stat-num[data-count]").forEach(function (el) { countIO.observe(el); });
     }
 
-    /* copy to clipboard */
     var checkSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M20 6 9 17l-5-5"/></svg>';
-
-    $$(".copy-btn").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        copyText(btn.getAttribute("data-copy"), function () { flashBtn(btn); });
-      });
-    });
 
     function copyBtnFlash(btn) {
       if (btn.classList.contains("copied")) return;
@@ -117,6 +113,22 @@
       btn.innerHTML = checkSVG;
       setTimeout(function () { btn.classList.remove("copied"); btn.innerHTML = orig; }, 1600);
     }
+
+    $$(".copy-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        copyText(btn.getAttribute("data-copy"), function () {
+          var label = btn.getAttribute("data-copied");
+          if (label) {
+            var orig = btn.innerHTML;
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>' + label + "</span>";
+            btn.classList.add("copied");
+            setTimeout(function () { btn.innerHTML = orig; btn.classList.remove("copied"); }, 2200);
+          } else {
+            copyBtnFlash(btn);
+          }
+        });
+      });
+    });
 
     $$(".code-block").forEach(function (block) {
       var copyBtn = $(".code-copy", block);
@@ -132,19 +144,6 @@
       });
     });
 
-    function flashBtn(btn) {
-      var label = btn.getAttribute("data-copied");
-      if (label) {
-        var orig = btn.innerHTML;
-        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>' + label + "</span>";
-        btn.classList.add("copied");
-        setTimeout(function () { btn.innerHTML = orig; btn.classList.remove("copied"); }, 2200);
-        return;
-      }
-      copyBtnFlash(btn);
-    }
-
-    /* docs tabs */
     var tabs = $$(".docs-tab");
     if (tabs.length) {
       tabs.forEach(function (tab) {
@@ -161,7 +160,6 @@
       });
     }
 
-    /* terminal typing */
     var typing = $("#typingCmd");
     if (typing && !typing.dataset.started) {
       typing.dataset.started = "1";
@@ -180,7 +178,6 @@
       setTimeout(type, 1400);
     }
 
-    /* footer year */
     var yearEl = $("#year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   }
@@ -200,8 +197,6 @@
   }
 
   /* ---------- page transitions ---------- */
-
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function enterPage(hash) {
     document.body.classList.add("transition-enter");
@@ -224,8 +219,8 @@
     window.scrollTo(0, 0);
   }
 
-  function swapContent(url) {
-    return fetch(url, { headers: { "X-Requested-With": "page-transition" } })
+  function swapContent(file, key) {
+    return fetch(file, { headers: { "X-Requested-With": "page-transition" } })
       .then(function (res) {
         if (!res.ok) throw new Error("fetch failed " + res.status);
         return res.text();
@@ -241,79 +236,69 @@
           var cur = document.querySelector('meta[name="description"]');
           if (cur) cur.setAttribute("content", desc.getAttribute("content"));
         }
-        initPage();
-        return url;
+        initPage(key);
       });
   }
 
-  function navigate(url) {
+  function navigate(path, hash) {
     if (transitionBusy) return;
     transitionBusy = true;
-    var hash = null;
-    var i = url.indexOf("#");
-    if (i !== -1) { hash = url.slice(i + 1); url = url.slice(0, i); }
-    if (!url || url === window.location.pathname) {
-      enterPage(hash);
-      transitionBusy = false;
-      return;
-    }
-
     document.body.classList.add("transition-leave");
     setTimeout(function () {
-      swapContent(url)
+      var file = canonical(path);
+      swapContent(file, file)
         .then(function () {
-          history.pushState({}, "", hash ? url + "#" + hash : url);
+          history.pushState({}, "", (path || "/") + hash);
           document.body.classList.remove("transition-leave");
-          enterPage(hash);
+          enterPage(hash ? hash.slice(1) : null);
           transitionBusy = false;
         })
         .catch(function () {
           document.body.classList.remove("transition-leave");
           transitionBusy = false;
-          window.location.href = url + (hash ? "#" + hash : "");
+          window.location.href = (path || "/") + hash;
         });
     }, 470);
   }
 
   /* internal link interception */
   document.addEventListener("click", function (e) {
-    if (reduced || e.defaultPrevented) return;
-    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.defaultPrevented) return;
     var a = e.target.closest("a");
     if (!a || a.hasAttribute("target") || a.hasAttribute("download")) return;
     var href = a.getAttribute("href");
     if (!href) return;
-    if (href.charAt(0) === "#") {
-      e.preventDefault();
-      var el = document.getElementById(href.slice(1));
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
     if (href.indexOf("://") !== -1 && href.indexOf(window.location.origin) !== 0) return;
-    var url = href;
-    var hashIndex = url.indexOf("#");
-    var pathPart = stripHash(url);
-    if (pathPart === currentPath()) {
-      if (hashIndex !== -1) {
-        e.preventDefault();
-        var t = document.getElementById(url.slice(hashIndex + 1));
-        if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
-        return;
-      }
+
+    var hi = href.indexOf("#");
+    var hash = hi !== -1 ? href.slice(hi) : "";
+    var path = hi !== -1 ? href.slice(0, hi) : href;
+    if (path === "") path = "/";
+
+    if (canonical(path) === pageKey()) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (hash) {
+        var el = document.getElementById(hash.slice(1));
+        if (el) {
+          el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+          history.replaceState(null, "", hash);
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+        history.replaceState(null, "", path);
+      }
       return;
     }
     e.preventDefault();
-    navigate(url);
+    navigate(path, hash);
   });
 
   /* back / forward */
   window.addEventListener("popstate", function () {
     if (transitionBusy) return;
     transitionBusy = true;
-    var url = stripHash(window.location.href);
-    swapContent(url)
+    var key = pageKey();
+    swapContent(key, key)
       .then(function () {
         enterPage(window.location.hash ? window.location.hash.slice(1) : null);
         transitionBusy = false;
